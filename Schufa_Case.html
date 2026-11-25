@@ -1,0 +1,1085 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Algorithmic Transparency · SCHUFA & BOSCO</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><style>:root{--dark:#121318;--surface:#29292f;--on:#e4e1e9;--muted:#c8c5d0;--lav:#c0c4ff;--purple:#6f79b9;--teal:#73d1cb;--teal-deep:#003735;--orange:#ffb689;--orange-deep:#512300;--blue:#38427e;--sans:"Bricolage Grotesque","Arial Narrow","Arial",sans-serif;--mono:"Space Mono","Courier New",monospace}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#08090d;color:var(--on);font-family:var(--sans);overflow:hidden}.viewer{height:100%;position:relative;touch-action:pan-y}.frame{position:absolute;width:1440px;height:810px;left:calc(50% - 720px);top:calc(50% - 405px);transform:scale(var(--scale,1));transform-origin:center}.deck{display:contents}
+.deck1 .slide{position:absolute;inset:0;display:none;overflow:hidden;padding:75px 96px 85px;background:var(--dark);color:var(--on);--accent:var(--lav);--track:#444654;--footer:#c8c5d0}
+.deck1 .slide.active{display:block}
+.deck1 .slide.orange{background:var(--orange);color:var(--orange-deep);--accent:var(--orange-deep);--track:#d19570;--footer:var(--orange-deep)}
+.deck1 .slide.teal{background:var(--teal);color:var(--teal-deep);--accent:var(--teal-deep);--track:#4eaaa5;--footer:var(--teal-deep)}
+.deck1 h1,.deck1 h2,.deck1 h3,.deck1 p{margin:0}
+.deck1 h1,.deck1 h2,.deck1 h3{font-weight:800;font-variation-settings:"opsz" 96;letter-spacing:-.035em}
+.deck1 h1{font-size:66px;line-height:1.03}
+.deck1 h2{font-size:39px;line-height:1.05}
+.deck1 p{font-size:26px;line-height:1.25}
+.deck1 .kicker,.deck1 .label,.deck1 .number,.deck1 .foot,.deck1 .micro{font-family:var(--mono);font-weight:700;letter-spacing:.015em}
+.deck1 .kicker{font-size:19px;color:var(--accent);margin-bottom:23px;text-transform:uppercase}
+.deck1 .label{font-size:17px;line-height:1.3;text-transform:uppercase}
+.deck1 .sub{font-size:27px;line-height:1.24;color:var(--muted)}
+.deck1 .footer{position:absolute;left:96px;right:96px;bottom:38px;display:flex;align-items:center;gap:38px;color:var(--footer)}
+.deck1 .progress{width:100%;height:18px;flex:1;overflow:visible}
+.deck1 .foot{font-size:18px;white-space:nowrap}
+.deck1 .under{position:relative;white-space:nowrap;display:inline-block}
+.deck1 .under svg{position:absolute;bottom:-13px;left:-2%;width:104%;height:20px;overflow:visible;color:var(--blue);pointer-events:none}
+.deck1 .stroke{stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.deck1 .surface{background:var(--surface);border-radius:27px}
+.deck1 .star{display:inline-block;vertical-align:middle}
+.deck1 .star svg{width:100%;height:100%}
+.deck1 .badge{border-radius:24px;padding:10px 19px;background:var(--orange);color:var(--orange-deep);font-size:24px;font-weight:800;display:inline-flex;align-items:center;gap:10px;box-shadow:5px 6px 0 #000}
+.deck1 .mono{font-family:var(--mono)}
+.deck1 .s1 h1{font-size:65px}
+.deck1 .risk-grid{display:grid;grid-template-columns:390px 1fr;gap:30px;margin-top:29px}
+.deck1 .risk-left{display:flex;flex-direction:column;gap:15px}
+.deck1 .risk-card{background:var(--orange);color:var(--orange-deep);padding:24px 27px 22px;border-radius:30px;box-shadow:6px 7px 0 #000;position:relative}
+.deck1 .risk-card .label{font-size:16px}
+.deck1 .risk-card .riskword{font-size:62px;font-weight:800;line-height:1.1;letter-spacing:-.07em;font-variation-settings:"opsz" 96}
+.deck1 .risk-card p{font-size:23px;margin-top:7px}
+.deck1 .risk-card small{display:block;font-size:17px;margin-top:11px}
+.deck1 .risk-card .aster{position:absolute;right:24px;top:25px;font-size:42px;line-height:1}
+.deck1 .chain{display:flex;align-items:center;gap:9px;margin:9px 0 2px;font-size:21px;font-weight:700}
+.deck1 .chain span{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;text-align:center}
+.deck1 .chain svg{width:31px;height:31px;fill:none;stroke:var(--lav);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.deck1 .chain b{color:var(--lav);font-size:26px}
+.deck1 .risk-left .impact{padding:16px 20px;background:#38427e;color:#e1e3ff;border-radius:22px}
+.deck1 .impact p{font-size:21px;margin-top:4px}
+.deck1 .requirements{display:flex;flex-direction:column;gap:7px}
+.deck1 .req-head{display:flex;align-items:center;justify-content:space-between;margin:0 1px 5px;color:var(--lav)}
+.deck1 .req-head .label{font-size:16px}
+.deck1 .requirement{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:17px;min-height:55px;padding:7px 16px 7px 10px;background:var(--surface);border-radius:18px}
+.deck1 .requirement .number{background:var(--purple);color:white;border-radius:12px;padding:9px 0;text-align:center;font-size:21px}
+.deck1 .requirement:nth-child(3n) .number{background:#4ab4ac;color:#062b2a}
+.deck1 .requirement:nth-child(3n/**/+1) .number{background:#f07f2a;color:#2e1604}
+.deck1 .requirement .name{font-size:24px;line-height:1.05;font-weight:800;letter-spacing:-.025em}
+.deck1 .requirement .desc{font-size:19px;color:var(--muted);margin-top:3px}
+.deck1 .requirement.focus{outline:2px solid var(--lav);background:#32344b}
+.deck1 .requirement.focus .number{background:var(--lav);color:#292e59}
+.deck1 .risk-takeaway{margin-top:18px;color:var(--lav);font-weight:800;font-size:27px;letter-spacing:-.03em}
+.deck1 .s2 h1{font-size:79px;line-height:.99}
+.deck1 .s2 .lead{margin-top:23px;font-size:31px;max-width:1120px}
+.deck1 .opacity-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
+.deck1 .opacity-row{display:flex;align-items:center;gap:23px;background:var(--orange-deep);color:var(--orange);padding:17px 24px;border-radius:30px;box-shadow:6px 7px 0 #000;min-height:82px}
+.deck1 .opacity-row .number{font-size:28px;min-width:54px;height:54px;display:grid;place-items:center;background:var(--orange);color:var(--orange-deep);border-radius:17px}
+.deck1 .opacity-row h2{font-size:34px}
+.deck1 .opacity-row p{font-size:23px;color:#ffdbc8;margin-left:auto;text-align:right}
+.deck1 .s2 .question{font-weight:800;font-size:32px;line-height:1.18;margin-top:33px;letter-spacing:-.03em}
+.deck1 .s2 .mark{position:absolute;right:100px;top:60px;width:100px;height:100px;color:var(--blue);transform:rotate(13deg)}
+.deck1 .s3 h1{font-size:65px}
+.deck1 .legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:27px}
+.deck1 .law{position:relative;padding:18px 22px 20px;border-radius:28px;background:var(--surface);min-height:145px}
+.deck1 .law .label{font-size:16px;color:var(--lav);margin-bottom:9px}
+.deck1 .law h2{font-size:35px;letter-spacing:-.04em}
+.deck1 .law p{font-size:22px;margin-top:7px;color:var(--muted);max-width:535px}
+.deck1 .law:nth-child(2) .label{color:#73d1cb}
+.deck1 .law:nth-child(3) .label{color:var(--orange)}
+.deck1 .law .glyph{position:absolute;right:20px;top:20px;width:36px;height:36px;color:var(--lav)}
+.deck1 .law:nth-child(2) .glyph{color:#73d1cb}
+.deck1 .law:nth-child(3) .glyph{color:var(--orange)}
+.deck1 .trade{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.deck1 .trade-card{padding:20px 23px;background:#38427e;color:#e1e3ff;border-radius:25px;box-shadow:5px 6px 0 #000}
+.deck1 .trade-card.second{background:#2d5655;color:#d8f8f2}
+.deck1 .trade-card .label{font-size:15px;margin-bottom:8px}
+.deck1 .trade-card h2{font-size:28px;letter-spacing:-.025em}
+.deck1 .trade-card p{font-size:20px;margin-top:7px;line-height:1.22}
+.deck1 .s3 .take{font-size:26px;color:var(--lav);font-weight:800;margin-top:19px;letter-spacing:-.02em}
+.deck1 .s4 h1{font-size:75px;max-width:1150px}
+.deck1 .s4 .mark{position:absolute;right:100px;top:71px;width:110px;height:110px;transform:rotate(-14deg);color:#0e6564}
+.deck1 .distinction{display:grid;grid-template-columns:1fr 65px 1fr;gap:15px;align-items:center;margin-top:38px}
+.deck1 .concept{min-height:164px;padding:23px 26px;border-radius:32px;box-shadow:7px 8px 0 #003735;background:#c2e9e4}
+.deck1 .concept.second{background:var(--teal-deep);color:#a5f4e9;box-shadow:7px 8px 0 #152625}
+.deck1 .concept .label{font-size:16px}
+.deck1 .concept h2{font-size:45px;margin-top:10px}
+.deck1 .concept p{font-size:26px;margin-top:8px}
+.deck1 .neq{font-size:56px;font-weight:800;text-align:center}
+.deck1 .example{display:flex;align-items:center;gap:24px;margin-top:30px}
+.deck1 .example .code{flex:0 0 280px;padding:19px 23px;border-radius:23px;box-shadow:5px 6px 0 #003735;background:#121318;color:var(--lav);font:700 19px/1.5 var(--mono);transform:rotate(-2deg)}
+.deck1 .example p{font-size:29px;font-weight:700;max-width:835px;letter-spacing:-.025em}
+.deck1 .s4 .last{margin-top:33px;font-size:38px;line-height:1.1;font-weight:800;letter-spacing:-.035em;max-width:1190px}
+.deck1 .s4 .last .under{white-space:normal}
+@media (max-width:550px){}
+@media (prefers-reduced-motion:reduce){}
+@media  print{.deck1 .slide{display:block!important;position:relative;width:1440px;height:810px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.deck1 .slide:last-child{page-break-after:auto;break-after:auto}}
+.deck1 .s1 .risk-grid{margin-top:23px}
+.deck1 .s1 .requirements{gap:6px}
+.deck1 .s1 .requirement{min-height:52px;padding:5px 16px 5px 10px}
+.deck1 .s1 .req-head{margin-bottom:2px}
+.deck1 .s1 .risk-takeaway{margin:0;font-size:25px;line-height:1.16}
+.deck1 .s1 .chain{gap:5px;font-size:18px}
+.deck1 .s1 .chain span{flex:1 1 0;white-space:nowrap}
+.deck1 .s1 .risk-card .riskword{font-size:59px}
+.deck1 .s3 .legal-grid{gap:13px;margin-top:23px}
+.deck1 .s3 .law{min-height:132px;padding:15px 22px}
+.deck1 .s3 .law p{font-size:21px}
+.deck1 .s3 .trade{margin-top:15px}
+.deck1 .s3 .trade-card{padding:16px 22px}
+.deck1 .s3 .take{margin-top:15px;font-size:25px}
+.deck1 .s4 .distinction{margin-top:30px}
+.deck1 .s4 .example{margin-top:24px}
+.deck1 .s4 .last{margin-top:24px;font-size:36px}
+.deck1 .s4 .concept{min-height:156px}
+.deck1 .s4 .last .under svg{bottom:-9px}
+.deck1 .s4 .example p{font-size:27px}
+.deck1 .intro h1{font-size:77px}
+.deck1 .intro-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:65px;margin-top:49px}
+.deck1 .hero-copy{font-size:43px;line-height:1.13;font-weight:800;letter-spacing:-.035em;color:var(--lav)}
+.deck1 .intro .risk-card{padding:34px 35px;min-height:285px;transform:rotate(-1.5deg)}
+.deck1 .intro .risk-card .label{font-size:20px}
+.deck1 .intro .risk-card .riskword{font-size:78px;margin-top:16px;white-space:nowrap}
+.deck1 .intro .risk-card p{font-size:29px}
+.deck1 .intro .risk-card small{font-size:21px;margin-top:19px}
+.deck1 .intro .risk-card .aster{font-size:36px;top:24px}
+.deck1 .intro .chain{margin-top:40px;gap:14px;font-size:24px;max-width:560px}
+.deck1 .intro .chain svg{width:54px;height:54px}
+.deck1 .intro .chain b{font-size:35px}
+.deck1 .intro-caption{margin-top:28px;font-size:24px;color:var(--muted)}
+.deck1 .safeguards h1{font-size:70px}
+.deck1 .safeguards .sub{margin-top:13px;color:var(--lav);font-weight:700;font-size:32px}
+.deck1 .req-air{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:37px}
+.deck1 .req-air .requirement{min-height:144px;border-radius:29px;grid-template-columns:86px 1fr;padding:22px;gap:22px;box-shadow:4px 5px 0 #090a0d}
+.deck1 .req-air .number{font-size:32px;border-radius:22px;padding:18px 0}
+.deck1 .req-air .name{font-size:31px;line-height:1.12}
+.deck1 .req-air .desc{font-size:23px;line-height:1.18;margin-top:8px}
+.deck1 .req-air .requirement:nth-child(4n/**/+1) .number{background:var(--purple);color:white}
+.deck1 .req-air .requirement:nth-child(4n/**/+2) .number{background:#4ab4ac;color:#062b2a}
+.deck1 .req-air .requirement:nth-child(4n/**/+3) .number{background:#f07f2a;color:#2e1604}
+.deck1 .req-air .requirement.focus .number{background:var(--lav);color:#292e59}
+.deck1 .follow h1{font-size:66px}
+.deck1 .follow .req-air{margin-top:29px;gap:16px}
+.deck1 .follow .req-air .requirement{min-height:111px;padding:15px 20px}
+.deck1 .follow .req-air .requirement:last-child{grid-column:1/-1;min-height:102px}
+.deck1 .follow .req-air .name{font-size:30px}
+.deck1 .follow .req-air .desc{font-size:22px}
+.deck1 .wide-impact{margin-top:23px;padding:23px 30px;background:var(--blue);color:#e1e3ff;border-radius:28px;display:flex;align-items:center;gap:32px}
+.deck1 .wide-impact .label{flex:0 0 300px;font-size:18px}
+.deck1 .wide-impact p{font-size:26px;margin:0}
+.deck1 .follow .risk-takeaway{margin-top:24px;font-size:30px}
+.deck1 .legal-air h1,.deck1 .trade-air h1{font-size:72px}
+.deck1 .legal-air .sub,.deck1 .trade-air .sub{margin-top:23px;font-size:30px;max-width:1110px}
+.deck1 .legal-air .legal-grid{gap:26px;margin-top:48px}
+.deck1 .legal-air .law{padding:34px 32px;min-height:245px;box-shadow:5px 6px 0 #000}
+.deck1 .legal-air .law .label{font-size:20px;margin-bottom:27px}
+.deck1 .legal-air .law h2{font-size:45px;line-height:1.1}
+.deck1 .legal-air .law p{font-size:29px;line-height:1.25;margin-top:19px}
+.deck1 .legal-air .take{margin-top:46px;font-size:34px;font-weight:800;color:var(--lav);letter-spacing:-.03em;max-width:1140px}
+.deck1 .explain .law:first-child{background:var(--blue);color:#e1e3ff}
+.deck1 .explain .law:first-child p{color:#e1e3ff}
+.deck1 .explain .law:first-child .label{color:var(--orange)}
+.deck1 .explain .law:last-child .label{color:var(--teal)}
+.deck1 .trade-air .trade{margin-top:38px;gap:28px}
+.deck1 .trade-air .trade-card{padding:30px 30px 34px;min-height:230px;border-radius:30px}
+.deck1 .trade-air .trade-card .label{font-size:18px;margin-bottom:20px}
+.deck1 .trade-air .trade-card h2{font-size:39px;line-height:1.07}
+.deck1 .trade-air .trade-card p{font-size:26px;line-height:1.25;margin-top:16px}
+.deck1 .account-air .distinction{margin-top:48px}
+.deck1 .account-air .concept{padding:30px;min-height:210px}
+.deck1 .account-air .example{margin-top:43px}
+.deck1 .account-air .example p{font-size:34px}
+.deck1 .account-air .example .code{font-size:24px;flex-basis:300px}
+.deck1 .question-air h1{font-size:77px;max-width:1150px}
+.deck1 .question-air .scenario{font-size:36px;margin-top:27px;font-weight:500}
+.deck1 .question-air .big-question{font-size:82px;line-height:1.04;font-weight:800;letter-spacing:-.05em;margin-top:70px;max-width:1160px}
+.deck1 .question-air .under svg{bottom:-17px;height:27px}
+.deck1 .final-mark .mark{position:absolute;right:105px;top:310px;width:140px;height:140px;color:var(--blue);transform:rotate(-13deg)}
+.deck1 .question-air h1{font-size:88px;line-height:1.06;max-width:1248px;margin-top:92px;font-weight:800;letter-spacing:-.035em}
+.deck1 .question-air .final-mark .mark{right:112px;top:485px;width:145px;height:145px}
+@media  screen{.deck1 .slide{display:block;opacity:0;visibility:hidden;pointer-events:none;z-index:0;transition:opacity 680ms ease-in-out,visibility 0s linear 680ms}
+.deck1 .slide.active{opacity:1;visibility:visible;pointer-events:auto;z-index:1;transition:opacity 680ms ease-in-out,visibility 0s}}
+@media  screen and (prefers-reduced-motion:reduce){.deck1 .slide,.deck1 .slide.active{transition:none!important}}
+@media  print{.deck1 .slide,.deck1 .slide.active{opacity:1!important;visibility:visible!important;transition:none!important;z-index:auto}}
+@media  screen and (prefers-reduced-motion: no-preference) {@keyframes m3-enter {
+    from { opacity: 0; translate: 0 18px; }
+    to   { opacity: 1; translate: 0 0; }
+  }
+@keyframes m3-shape {
+    from { opacity: 0; scale: .86; rotate: -12deg; }
+    to   { opacity: 1; scale: 1; rotate: 0deg; }
+  }
+@keyframes m3-ink {
+    from { clip-path: inset(-10px 100% -10px -10px); }
+    to   { clip-path: inset(-10px); }
+  }
+.deck1 .slide.active :is(.kicker,h1,.hero-copy,.intro-caption,.risk-card,.sub,.requirement,.wide-impact,.risk-takeaway,.lead,.opacity-row,.question,.law,.take,.trade-card,.concept,.neq,.example .code,.example p,.chain > *){
+    animation: m3-enter var(--motion-duration,840ms) cubic-bezier(.05,.7,.1,1) var(--motion-delay,200ms) both;
+  }
+.deck1 .slide.active .kicker{ --motion-delay: 40ms; --motion-duration: 600ms; }
+.deck1 .slide.active h1{ --motion-delay: 130ms; --motion-duration: 880ms; }
+.deck1 .slide.active :is(.sub,.lead,.hero-copy){ --motion-delay: 250ms; }
+.deck1 .slide.active :is(.risk-card,.requirement,.opacity-row,.law,.trade-card,.concept){ --motion-delay: 340ms; }
+.deck1 .slide.active :is(.requirement,.opacity-row,.law,.trade-card):nth-child(2){ --motion-delay: 450ms; }
+.deck1 .slide.active :is(.requirement,.opacity-row):nth-child(3){ --motion-delay: 560ms; }
+.deck1 .slide.active .requirement:nth-child(4){ --motion-delay: 670ms; }
+.deck1 .slide.active .concept.second{ --motion-delay: 550ms; }
+.deck1 .slide.active .neq{ --motion-delay: 450ms; }
+.deck1 .slide.active .chain > *{ --motion-delay: 340ms; --motion-duration: 680ms; }
+.deck1 .slide.active .chain > :nth-child(2){ --motion-delay: 410ms; }
+.deck1 .slide.active .chain > :nth-child(3){ --motion-delay: 480ms; }
+.deck1 .slide.active .chain > :nth-child(4){ --motion-delay: 550ms; }
+.deck1 .slide.active .chain > :nth-child(5){ --motion-delay: 620ms; }
+.deck1 .slide.active :is(.intro-caption,.wide-impact,.example .code){ --motion-delay: 620ms; }
+.deck1 .slide.active :is(.risk-takeaway,.question,.take,.example p){ --motion-delay: 730ms; --motion-duration: 760ms; }
+.deck1 .slide.active .mark{ animation: m3-shape 1040ms cubic-bezier(.2,.8,.2,1) 300ms both; }
+.deck1 .slide.active .risk-card .aster{ animation: m3-shape 960ms cubic-bezier(.2,.8,.2,1) 520ms both; }
+.deck1 .slide.active .under svg{ animation: m3-ink 760ms cubic-bezier(.2,.8,.2,1) 500ms both; }
+.deck1 .slide.active .progress path:first-child{ animation: m3-ink 1040ms cubic-bezier(.2,.8,.2,1) 240ms both; }}
+@media  print, (prefers-reduced-motion: reduce) {.deck1 .slide,.deck1 .slide *{ animation: none !important; }}
+.deck1 .bosco-intro h1{font-size:83px}
+.deck1 .bosco-intro .intro-grid{margin-top:39px;grid-template-columns:1.12fr 1fr;gap:55px}
+.deck1 .bosco-intro .risk-card{min-height:275px;background:var(--teal);color:var(--teal-deep)}
+.deck1 .bosco-intro .risk-card .riskword{font-size:83px}
+.deck1 .bosco-intro .chain{margin-top:34px;gap:8px;font-size:21px}
+.deck1 .bosco-intro .chain span{white-space:nowrap}
+.deck1 .bosco-intro .hero-copy{font-size:39px}
+.deck1 .bosco-intro .intro-caption{font-size:23px;line-height:1.3}
+.deck1 .dispute h1{font-size:78px}
+.deck1 .dispute .lead{max-width:1090px}
+.deck1 .dispute .trade{margin-top:32px;gap:24px}
+.deck1 .dispute .trade-card{background:#ffe0cc;color:var(--orange-deep);padding:25px 30px;min-height:220px;border-radius:30px}
+.deck1 .dispute .trade-card.second{background:var(--orange-deep);color:#ffdbc8}
+.deck1 .dispute .trade-card .label{font-size:17px;margin-bottom:13px}
+.deck1 .dispute .trade-card h2{font-size:39px}
+.deck1 .dispute .trade-card p{font-size:26px;line-height:1.25;margin-top:13px}
+.deck1 .dispute .question{margin-top:29px;font-size:32px}
+.deck1 .judgment h1{font-size:69px}
+.deck1 .judgment .sub{margin-top:12px;font-size:29px}
+.deck1 .judgment .requirements{margin-top:28px;gap:13px}
+.deck1 .judgment .requirement{min-height:107px;grid-template-columns:76px 1fr;gap:23px;border-radius:25px;padding:14px 23px 14px 17px}
+.deck1 .judgment .requirement .number{font-size:29px;padding:17px 0;border-radius:19px}
+.deck1 .judgment .requirement .name{font-size:31px}
+.deck1 .judgment .requirement .desc{font-size:24px;line-height:1.2;margin-top:6px}
+.deck1 .judgment .risk-takeaway{margin-top:21px;font-size:29px}
+.deck1 .asymmetric h1{font-size:76px;max-width:1150px}
+.deck1 .asymmetric .distinction{margin-top:34px;grid-template-columns:1fr 65px 1fr}
+.deck1 .asymmetric .concept{min-height:217px;padding:26px 30px}
+.deck1 .asymmetric .concept h2{font-size:43px}
+.deck1 .asymmetric .concept p{font-size:26px;line-height:1.2}
+.deck1 .asymmetric .common{margin-top:33px;padding:19px 28px;border:3px solid var(--teal-deep);border-radius:24px;display:flex;align-items:center;gap:24px}
+.deck1 .asymmetric .common .label{flex:0 0 222px;font-size:17px}
+.deck1 .asymmetric .common p{font-size:30px;font-weight:800;letter-spacing:-.025em}
+.deck1 .asymmetric .mark{width:90px;height:90px;position:absolute;right:102px;top:68px;color:#0e6564;transform:rotate(-14deg)}
+.deck1 .sector h1{font-size:72px}
+.deck1 .sector .sub{font-size:30px;margin-top:16px}
+.deck1 .sector .legal-grid{margin-top:32px;gap:25px}
+.deck1 .sector .law{min-height:232px;padding:26px 30px;box-shadow:5px 6px 0 #000}
+.deck1 .sector .law .label{font-size:18px;margin-bottom:19px}
+.deck1 .sector .law h2{font-size:40px}
+.deck1 .sector .law p{font-size:26px;line-height:1.25;margin-top:13px}
+.deck1 .sector .take{margin-top:30px;font-size:33px;line-height:1.16;font-weight:800;color:var(--lav);letter-spacing:-.025em}
+.deck1 .public .law:first-child{background:var(--blue);color:#e1e3ff}
+.deck1 .public .law:first-child p{color:#e1e3ff}
+.deck1 .public .law:first-child .label{color:var(--teal)}
+.deck1 .private .law:first-child .label{color:var(--orange)}
+.deck1 .private .law:nth-child(2){background:#2d5655;color:#d8f8f2}
+.deck1 .private .law:nth-child(2) p{color:#d8f8f2}
+.deck1 .floor h1{font-size:74px;max-width:1170px}
+.deck1 .floor .lead{margin-top:19px;font-size:31px;max-width:1120px}
+.deck1 .floor .floor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:39px}
+.deck1 .floor .concept{padding:25px;min-height:210px;background:#c2e9e4;color:var(--teal-deep)}
+.deck1 .floor .concept:nth-child(2){background:var(--teal-deep);color:#a5f4e9}
+.deck1 .floor .concept:nth-child(3){background:#e3e6ff;color:#292e59}
+.deck1 .floor .concept .label{font-size:17px}
+.deck1 .floor .concept h2{font-size:39px;margin-top:14px}
+.deck1 .floor .concept p{font-size:24px;line-height:1.2;margin-top:12px}
+.deck1 .floor .last{margin-top:36px;font-size:34px;line-height:1.14;font-weight:800;letter-spacing:-.03em}
+.deck1 .floor .under{white-space:normal}
+@media  screen and (prefers-reduced-motion:no-preference){.deck1 .slide.active :is(.common,.last){animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 730ms both}
+.deck1 .floor.active .concept:nth-child(2){--motion-delay:450ms}
+.deck1 .floor.active .concept:nth-child(3){--motion-delay:560ms}
+.deck1 .dispute.active .trade-card:nth-child(2){--motion-delay:450ms}}
+.deck1 .case-brief h1{font-size:72px}
+.deck1 .case-brief .sub{margin-top:13px;font-size:29px}
+.deck1 .case-brief .trade{margin-top:30px;gap:24px}
+.deck1 .case-brief .trade-card{min-height:200px;padding:25px 29px;border-radius:30px}
+.deck1 .case-brief .trade-card h2{font-size:39px}
+.deck1 .case-brief .trade-card .label{font-size:17px;margin-bottom:14px}
+.deck1 .case-brief .trade-card p{font-size:26px;margin-top:12px}
+.deck1 .case-brief .trade-card.second{background:var(--teal);color:var(--teal-deep)}
+.deck1 .case-brief .take{font-size:34px;font-weight:800;color:var(--lav);margin-top:30px;letter-spacing:-.03em}
+.deck1 .research h1{font-size:58px;line-height:1.06;max-width:1248px}
+.deck1 .research .answer{font-size:43px;font-weight:800;letter-spacing:-.035em;margin-top:24px}
+.deck1 .research .distinction{margin-top:24px}
+.deck1 .research .concept{min-height:155px;padding:20px 25px}
+.deck1 .research .concept h2{font-size:39px;margin-top:6px}
+.deck1 .research .concept p{font-size:24px;margin-top:7px}
+.deck1 .research .common{margin-top:24px;padding:15px 23px}
+.deck1 .research .common p{font-size:27px}
+.deck1 .research .common .label{flex-basis:200px}
+.deck1 .research .under svg{bottom:-10px}
+.deck1 .floor .last{font-size:35px}
+.deck1 .private .sub{color:var(--muted)}
+@media  screen and (prefers-reduced-motion:no-preference){.deck1 .slide.active .answer{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 260ms both}
+.deck1 .research.active .concept{--motion-delay:390ms}
+.deck1 .research.active .concept.second{--motion-delay:550ms}}
+.deck1 .section-break .part{font:700 22px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.deck1 .section-break .part-num{position:absolute;right:91px;top:57px;font:800 250px/.88 var(--sans);letter-spacing:-.09em;color:var(--accent);opacity:.24}
+.deck1 .section-break h1{position:absolute;left:96px;top:295px;font-size:110px;line-height:.94;max-width:1150px;letter-spacing:-.055em}
+.deck1 .section-break.dark-break{--accent:var(--lav)}
+.deck1 .section-break.dark-break .part-num{opacity:.46}
+.deck1 .facts h1,.deck1 .holdings h1{font-size:75px}
+.deck1 .facts .sub{font-size:30px;margin-top:18px;max-width:1120px}
+.deck1 .facts .trade{margin-top:38px;gap:26px}
+.deck1 .facts .trade-card{min-height:220px;padding:28px 32px}
+.deck1 .facts .trade-card h2{font-size:39px}
+.deck1 .facts .trade-card p{font-size:27px;margin-top:14px}
+.deck1 .facts .trade-card .label{font-size:18px;margin-bottom:17px}
+.deck1 .facts .trade-card.second{background:#512300;color:#ffdbc8}
+.deck1 .facts .take{font-size:31px;margin-top:30px;color:var(--lav);font-weight:800}
+.deck1 .holdings .req-air{display:flex;flex-direction:column;gap:15px;margin-top:35px}
+.deck1 .holdings .req-air .requirement{min-height:99px;padding:14px 20px;grid-template-columns:70px 1fr;gap:23px}
+.deck1 .holdings .req-air .number{font-size:27px;padding:12px 0;border-radius:17px}
+.deck1 .holdings .req-air .name{font-size:31px}
+.deck1 .holdings .req-air .desc{font-size:24px;margin-top:5px}
+.deck1 .holdings .take{font-size:31px;margin-top:29px;color:var(--lav);font-weight:800}
+.deck1 .qa h1{font-size:70px;line-height:1.06;max-width:1230px;margin-top:26px}
+.deck1 .qa .answer{margin-top:51px;font-size:74px;line-height:1.04;font-weight:800;letter-spacing:-.05em}
+.deck1 .qa .answer strong{font-size:112px;display:block;line-height:.95;margin-bottom:15px}
+.deck1 .qa .under svg{bottom:-13px;height:22px}
+.deck1 .compare h1{font-size:77px}
+.deck1 .compare .distinction{margin-top:42px}
+.deck1 .compare .concept{min-height:230px;padding:28px 30px}
+.deck1 .compare .concept h2{font-size:42px;line-height:1.05}
+.deck1 .compare .concept p{font-size:27px;margin-top:15px}
+.deck1 .compare .common{margin-top:35px;padding:23px 30px}
+.deck1 .compare .common p{font-size:30px}
+.deck1 .floor .floor-grid{margin-top:39px}
+.deck1 .floor .concept{min-height:220px}
+.deck1 .floor .last{margin-top:32px;font-size:32px}
+.deck1 .closing h1{font-size:99px;line-height:1.02;letter-spacing:-.055em;margin-top:146px;max-width:1248px}
+.deck1 .closing .mark{position:absolute;right:108px;top:120px;width:110px;height:110px;color:#0e6564;transform:rotate(-12deg)}
+.deck1 .closing .under svg{height:27px;bottom:-19px}
+@media  screen and (prefers-reduced-motion:no-preference){.deck1 .slide.active :is(.part,.part-num){animation:m3-enter 780ms cubic-bezier(.05,.7,.1,1) 120ms both}
+.deck1 .section-break.active h1{--motion-delay:250ms}
+.deck1 .qa.active .answer{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 360ms both}}
+.deck1 .floor:not(.teal) .concept{box-shadow:5px 6px 0 #000}
+.deck1 .floor:not(.teal) .concept:nth-child(2){background:#2d5655;color:#d8f8f2}
+.deck1 .floor:not(.teal) .lead{color:var(--muted)}
+.deck1 .opening h1{font-size:150px;line-height:.91;letter-spacing:-.07em;margin-top:114px}
+.deck1 .opening .sub{color:var(--teal-deep);font-size:36px;font-weight:700;margin-top:30px}
+.deck1 .opening .names{font:700 22px var(--mono);margin-top:44px}
+.deck1 .opening .mark{position:absolute;right:110px;top:183px;width:145px;height:145px;color:#0e6564;transform:rotate(-13deg)}
+.deck1 .rq-open h1{font-size:80px;line-height:1.08;max-width:1200px;margin-top:95px}
+.deck1 .rq-open .under svg{color:var(--lav);bottom:-17px;height:22px}
+.deck1 .rq-open .under{white-space:normal}
+.deck1 .roadmap h1{font-size:75px}
+.deck1 .roadmap .req-air{display:flex;flex-direction:column;gap:19px;margin-top:45px;max-width:1100px}
+.deck1 .roadmap .requirement{min-height:112px}
+.deck1 .roadmap .req-air .name{font-size:37px}
+.deck1 .roadmap .req-air .number{font-size:31px}
+.deck1 .score-flow h1{font-size:75px}
+.deck1 .score-flow .sub{font-size:31px;margin-top:18px;max-width:1100px}
+.deck1 .score-flow .flowline{display:grid;grid-template-columns:1fr 55px 1fr 55px 1fr;align-items:center;gap:12px;margin-top:65px}
+.deck1 .flowline .law{min-height:210px;padding:28px 26px;box-shadow:5px 6px 0 #000}
+.deck1 .flowline .law h2{font-size:38px}
+.deck1 .flowline .law p{font-size:25px;margin-top:15px}
+.deck1 .flowline .law .label{font-size:17px;margin-bottom:20px}
+.deck1 .flowline .law.score{background:var(--blue);color:#e1e3ff}
+.deck1 .flowline .law.score p{color:#e1e3ff}
+.deck1 .flowline .law.score .label{color:var(--teal)}
+.deck1 .flowline .arrow{font-size:47px;font-weight:800;text-align:center;color:var(--lav)}
+.deck1 .score-flow .take{font-size:30px;font-weight:800;color:var(--lav);margin-top:35px}
+.deck1 .oq h1{font-size:76px}
+.deck1 .oq .trade{margin-top:46px;gap:26px}
+.deck1 .oq .trade-card{min-height:235px;padding:29px 32px}
+.deck1 .oq .trade-card h2{font-size:43px}
+.deck1 .oq .trade-card p{font-size:28px;margin-top:15px}
+.deck1 .oq .trade-card.second{background:var(--orange-deep);color:#ffdbc8}
+.deck1 .oq .trade-card .label{font-size:18px;margin-bottom:18px}
+.deck1 .oq .take{font-size:32px;color:var(--lav);font-weight:800;margin-top:35px}
+.deck1 .referral .req-air .requirement{min-height:106px}
+.deck1 .referral .req-air .name{font-size:31px}
+.deck1 .referral .req-air .desc{font-size:24px}
+.deck1 .referral h1{font-size:72px}
+.deck1 .referral .req-air{margin-top:35px;gap:14px}
+.deck1 .central h1{font-size:88px;line-height:1.06;margin-top:85px;max-width:1180px}
+.deck1 .central .under svg{height:24px;bottom:-15px}
+.deck1 .central .mark{position:absolute;right:106px;top:96px;width:92px;height:92px;color:var(--blue);transform:rotate(-12deg)}
+.deck1 .conditions h1{font-size:71px}
+.deck1 .conditions .sub{font-size:30px;margin-top:17px;color:var(--lav)}
+.deck1 .conditions .req-air{margin-top:29px;gap:13px}
+.deck1 .conditions .req-air .requirement{min-height:104px}
+.deck1 .conditions .req-air .desc{font-size:24px}
+.deck1 .conditions .req-air .name{font-size:30px}
+.deck1 .reason h1{font-size:76px}
+.deck1 .reason .distinction{margin-top:43px}
+.deck1 .reason .concept{min-height:208px;padding:28px 30px}
+.deck1 .reason .concept h2{font-size:40px}
+.deck1 .reason .concept p{font-size:27px;margin-top:13px}
+.deck1 .reason .neq{font-size:53px}
+.deck1 .reason .take{font-size:33px;font-weight:800;margin-top:38px;letter-spacing:-.025em;max-width:1100px}
+.deck1 .gap-slide h1{font-size:75px}
+.deck1 .gap-slide .legal-grid{margin-top:37px}
+.deck1 .gap-slide .law h2{font-size:39px}
+.deck1 .gap-slide .law p{font-size:29px}
+.deck1 .gap-slide .take{font-size:36px;margin-top:40px}
+.deck1 .gap-slide .law:first-child{background:var(--blue);color:#e1e3ff}
+.deck1 .gap-slide .law:first-child p{color:#e1e3ff}
+.deck1 .gap-slide .law:nth-child(2) .label{color:var(--orange)}
+.deck1 .ethics h1{font-size:80px;line-height:1.08;max-width:1220px;margin-top:80px}
+.deck1 .ethics .under{white-space:normal}
+.deck1 .ethics .under svg{bottom:-17px;height:24px}
+@media  screen and (prefers-reduced-motion:no-preference){.deck1 .slide.active :is(.names,.flowline .arrow){animation:m3-enter 780ms cubic-bezier(.05,.7,.1,1) 620ms both}
+.deck1 .flowline .law:nth-child(3){--motion-delay:450ms}
+.deck1 .flowline .law:nth-child(5){--motion-delay:560ms}}
+.deck1 .opening-merged .cover-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:54px;align-items:center;margin-top:102px}
+.deck1 .opening-merged h1{font-size:110px;margin-top:0;line-height:.94;letter-spacing:-.055em}
+.deck1 .opening-merged .sub{font-size:31px;line-height:1.2;margin-top:26px;max-width:590px}
+.deck1 .opening-merged .names{margin-top:29px}
+.deck1 .cover-outline{background:var(--teal-deep);color:#c2e9e4;padding:28px 29px 31px;border-radius:32px;box-shadow:7px 8px 0 #152625;transform:rotate(-1deg)}
+.deck1 .cover-outline>.label{font-size:17px;margin-bottom:18px;color:#a5f4e9}
+.deck1 .cover-item{display:flex;align-items:center;gap:17px;padding:15px 0;border-top:1px solid #4eaaa5;font-size:25px;line-height:1.12}
+.deck1 .cover-item span{font:700 19px var(--mono);color:var(--teal);flex:0 0 35px}
+.deck1 .cover-item strong{font-weight:800}
+.deck1 .facts-merged h1{font-size:62px}
+.deck1 .facts-merged .sub{margin-top:16px;font-size:28px;max-width:1180px}
+.deck1 .mini-flow{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;align-items:center;gap:11px;margin-top:30px}
+.deck1 .flow-node{background:var(--surface);padding:20px 23px;border-radius:24px;min-height:113px;box-shadow:4px 5px 0 #000}
+.deck1 .flow-node.score{background:var(--blue);color:#e1e3ff}
+.deck1 .flow-node .label{font-size:15px;color:var(--lav);margin-bottom:8px}
+.deck1 .flow-node.score .label{color:var(--teal)}
+.deck1 .flow-node h2{font-size:34px;line-height:1.05}
+.deck1 .mini-flow .arrow{font-size:42px;text-align:center;font-weight:800;color:var(--lav)}
+.deck1 .facts-merged .trade{margin-top:25px;gap:24px}
+.deck1 .facts-merged .trade-card{padding:22px 26px;min-height:180px;border-radius:27px}
+.deck1 .facts-merged .trade-card.second{background:var(--orange-deep);color:#ffdbc8}
+.deck1 .facts-merged .trade-card .label{font-size:16px;margin-bottom:10px}
+.deck1 .facts-merged .trade-card h2{font-size:36px}
+.deck1 .facts-merged .trade-card p{font-size:25px;line-height:1.22;margin-top:9px}
+.deck1 .ruling h1{font-size:79px;line-height:1.04;max-width:1200px}
+.deck1 .ruling .lead{font-size:32px;line-height:1.2;margin-top:24px;max-width:1160px}
+.deck1 .ruling .distinction{margin-top:35px}
+.deck1 .ruling .concept{padding:23px 28px;min-height:162px}
+.deck1 .ruling .concept h2{font-size:41px;margin-top:9px}
+.deck1 .ruling .concept p{font-size:26px;margin-top:8px}
+.deck1 .ruling .take{font-size:33px;font-weight:800;letter-spacing:-.025em;margin-top:30px}
+.deck1 .ruling .under svg{bottom:-13px;height:22px}
+.deck1 .gap-slide .hypothetical{font-size:26px;color:var(--muted);margin-top:19px}
+.deck1 .gap-slide .legal-grid{margin-top:25px}
+.deck1 .gap-slide .take{margin-top:30px;font-size:33px}
+@media  screen and (prefers-reduced-motion:no-preference){.deck1 .slide.active :is(.cover-outline,.flow-node,.mini-flow .arrow,.hypothetical){animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 350ms both}
+.deck1 .cover-outline{--motion-delay:350ms}
+.deck1 .mini-flow .flow-node:nth-child(3){animation-delay:450ms}
+.deck1 .mini-flow .flow-node:nth-child(5){animation-delay:550ms}}
+.deck2 .slide{position:absolute;inset:0;display:none;overflow:hidden;padding:75px 96px 85px;background:var(--dark);color:var(--on);--accent:var(--lav);--track:#444654;--footer:#c8c5d0}
+.deck2 .slide.active{display:block}
+.deck2 .slide.orange{background:var(--orange);color:var(--orange-deep);--accent:var(--orange-deep);--track:#d19570;--footer:var(--orange-deep)}
+.deck2 .slide.teal{background:var(--teal);color:var(--teal-deep);--accent:var(--teal-deep);--track:#4eaaa5;--footer:var(--teal-deep)}
+.deck2 h1,.deck2 h2,.deck2 h3,.deck2 p{margin:0}
+.deck2 h1,.deck2 h2,.deck2 h3{font-weight:800;font-variation-settings:"opsz" 96;letter-spacing:-.035em}
+.deck2 h1{font-size:66px;line-height:1.03}
+.deck2 h2{font-size:39px;line-height:1.05}
+.deck2 p{font-size:26px;line-height:1.25}
+.deck2 .kicker,.deck2 .label,.deck2 .number,.deck2 .foot,.deck2 .micro{font-family:var(--mono);font-weight:700;letter-spacing:.015em}
+.deck2 .kicker{font-size:19px;color:var(--accent);margin-bottom:23px;text-transform:uppercase}
+.deck2 .label{font-size:17px;line-height:1.3;text-transform:uppercase}
+.deck2 .sub{font-size:27px;line-height:1.24;color:var(--muted)}
+.deck2 .footer{position:absolute;left:96px;right:96px;bottom:38px;display:flex;align-items:center;gap:38px;color:var(--footer)}
+.deck2 .progress{width:100%;height:18px;flex:1;overflow:visible}
+.deck2 .foot{font-size:18px;white-space:nowrap}
+.deck2 .under{position:relative;white-space:nowrap;display:inline-block}
+.deck2 .under svg{position:absolute;bottom:-13px;left:-2%;width:104%;height:20px;overflow:visible;color:var(--blue);pointer-events:none}
+.deck2 .stroke{stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.deck2 .surface{background:var(--surface);border-radius:27px}
+.deck2 .star{display:inline-block;vertical-align:middle}
+.deck2 .star svg{width:100%;height:100%}
+.deck2 .badge{border-radius:24px;padding:10px 19px;background:var(--orange);color:var(--orange-deep);font-size:24px;font-weight:800;display:inline-flex;align-items:center;gap:10px;box-shadow:5px 6px 0 #000}
+.deck2 .mono{font-family:var(--mono)}
+.deck2 .s1 h1{font-size:65px}
+.deck2 .risk-grid{display:grid;grid-template-columns:390px 1fr;gap:30px;margin-top:29px}
+.deck2 .risk-left{display:flex;flex-direction:column;gap:15px}
+.deck2 .risk-card{background:var(--orange);color:var(--orange-deep);padding:24px 27px 22px;border-radius:30px;box-shadow:6px 7px 0 #000;position:relative}
+.deck2 .risk-card .label{font-size:16px}
+.deck2 .risk-card .riskword{font-size:62px;font-weight:800;line-height:1.1;letter-spacing:-.07em;font-variation-settings:"opsz" 96}
+.deck2 .risk-card p{font-size:23px;margin-top:7px}
+.deck2 .risk-card small{display:block;font-size:17px;margin-top:11px}
+.deck2 .risk-card .aster{position:absolute;right:24px;top:25px;font-size:42px;line-height:1}
+.deck2 .chain{display:flex;align-items:center;gap:9px;margin:9px 0 2px;font-size:21px;font-weight:700}
+.deck2 .chain span{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;text-align:center}
+.deck2 .chain svg{width:31px;height:31px;fill:none;stroke:var(--lav);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.deck2 .chain b{color:var(--lav);font-size:26px}
+.deck2 .risk-left .impact{padding:16px 20px;background:#38427e;color:#e1e3ff;border-radius:22px}
+.deck2 .impact p{font-size:21px;margin-top:4px}
+.deck2 .requirements{display:flex;flex-direction:column;gap:7px}
+.deck2 .req-head{display:flex;align-items:center;justify-content:space-between;margin:0 1px 5px;color:var(--lav)}
+.deck2 .req-head .label{font-size:16px}
+.deck2 .requirement{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:17px;min-height:55px;padding:7px 16px 7px 10px;background:var(--surface);border-radius:18px}
+.deck2 .requirement .number{background:var(--purple);color:white;border-radius:12px;padding:9px 0;text-align:center;font-size:21px}
+.deck2 .requirement:nth-child(3n) .number{background:#4ab4ac;color:#062b2a}
+.deck2 .requirement:nth-child(3n/**/+1) .number{background:#f07f2a;color:#2e1604}
+.deck2 .requirement .name{font-size:24px;line-height:1.05;font-weight:800;letter-spacing:-.025em}
+.deck2 .requirement .desc{font-size:19px;color:var(--muted);margin-top:3px}
+.deck2 .requirement.focus{outline:2px solid var(--lav);background:#32344b}
+.deck2 .requirement.focus .number{background:var(--lav);color:#292e59}
+.deck2 .risk-takeaway{margin-top:18px;color:var(--lav);font-weight:800;font-size:27px;letter-spacing:-.03em}
+.deck2 .s2 h1{font-size:79px;line-height:.99}
+.deck2 .s2 .lead{margin-top:23px;font-size:31px;max-width:1120px}
+.deck2 .opacity-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
+.deck2 .opacity-row{display:flex;align-items:center;gap:23px;background:var(--orange-deep);color:var(--orange);padding:17px 24px;border-radius:30px;box-shadow:6px 7px 0 #000;min-height:82px}
+.deck2 .opacity-row .number{font-size:28px;min-width:54px;height:54px;display:grid;place-items:center;background:var(--orange);color:var(--orange-deep);border-radius:17px}
+.deck2 .opacity-row h2{font-size:34px}
+.deck2 .opacity-row p{font-size:23px;color:#ffdbc8;margin-left:auto;text-align:right}
+.deck2 .s2 .question{font-weight:800;font-size:32px;line-height:1.18;margin-top:33px;letter-spacing:-.03em}
+.deck2 .s2 .mark{position:absolute;right:100px;top:60px;width:100px;height:100px;color:var(--blue);transform:rotate(13deg)}
+.deck2 .s3 h1{font-size:65px}
+.deck2 .legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:27px}
+.deck2 .law{position:relative;padding:18px 22px 20px;border-radius:28px;background:var(--surface);min-height:145px}
+.deck2 .law .label{font-size:16px;color:var(--lav);margin-bottom:9px}
+.deck2 .law h2{font-size:35px;letter-spacing:-.04em}
+.deck2 .law p{font-size:22px;margin-top:7px;color:var(--muted);max-width:535px}
+.deck2 .law:nth-child(2) .label{color:#73d1cb}
+.deck2 .law:nth-child(3) .label{color:var(--orange)}
+.deck2 .law .glyph{position:absolute;right:20px;top:20px;width:36px;height:36px;color:var(--lav)}
+.deck2 .law:nth-child(2) .glyph{color:#73d1cb}
+.deck2 .law:nth-child(3) .glyph{color:var(--orange)}
+.deck2 .trade{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.deck2 .trade-card{padding:20px 23px;background:#38427e;color:#e1e3ff;border-radius:25px;box-shadow:5px 6px 0 #000}
+.deck2 .trade-card.second{background:#2d5655;color:#d8f8f2}
+.deck2 .trade-card .label{font-size:15px;margin-bottom:8px}
+.deck2 .trade-card h2{font-size:28px;letter-spacing:-.025em}
+.deck2 .trade-card p{font-size:20px;margin-top:7px;line-height:1.22}
+.deck2 .s3 .take{font-size:26px;color:var(--lav);font-weight:800;margin-top:19px;letter-spacing:-.02em}
+.deck2 .s4 h1{font-size:75px;max-width:1150px}
+.deck2 .s4 .mark{position:absolute;right:100px;top:71px;width:110px;height:110px;transform:rotate(-14deg);color:#0e6564}
+.deck2 .distinction{display:grid;grid-template-columns:1fr 65px 1fr;gap:15px;align-items:center;margin-top:38px}
+.deck2 .concept{min-height:164px;padding:23px 26px;border-radius:32px;box-shadow:7px 8px 0 #003735;background:#c2e9e4}
+.deck2 .concept.second{background:var(--teal-deep);color:#a5f4e9;box-shadow:7px 8px 0 #152625}
+.deck2 .concept .label{font-size:16px}
+.deck2 .concept h2{font-size:45px;margin-top:10px}
+.deck2 .concept p{font-size:26px;margin-top:8px}
+.deck2 .neq{font-size:56px;font-weight:800;text-align:center}
+.deck2 .example{display:flex;align-items:center;gap:24px;margin-top:30px}
+.deck2 .example .code{flex:0 0 280px;padding:19px 23px;border-radius:23px;box-shadow:5px 6px 0 #003735;background:#121318;color:var(--lav);font:700 19px/1.5 var(--mono);transform:rotate(-2deg)}
+.deck2 .example p{font-size:29px;font-weight:700;max-width:835px;letter-spacing:-.025em}
+.deck2 .s4 .last{margin-top:33px;font-size:38px;line-height:1.1;font-weight:800;letter-spacing:-.035em;max-width:1190px}
+.deck2 .s4 .last .under{white-space:normal}
+@media (max-width:550px){}
+@media (prefers-reduced-motion:reduce){}
+@media  print{.deck2 .slide{display:block!important;position:relative;width:1440px;height:810px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.deck2 .slide:last-child{page-break-after:auto;break-after:auto}}
+.deck2 .s1 .risk-grid{margin-top:23px}
+.deck2 .s1 .requirements{gap:6px}
+.deck2 .s1 .requirement{min-height:52px;padding:5px 16px 5px 10px}
+.deck2 .s1 .req-head{margin-bottom:2px}
+.deck2 .s1 .risk-takeaway{margin:0;font-size:25px;line-height:1.16}
+.deck2 .s1 .chain{gap:5px;font-size:18px}
+.deck2 .s1 .chain span{flex:1 1 0;white-space:nowrap}
+.deck2 .s1 .risk-card .riskword{font-size:59px}
+.deck2 .s3 .legal-grid{gap:13px;margin-top:23px}
+.deck2 .s3 .law{min-height:132px;padding:15px 22px}
+.deck2 .s3 .law p{font-size:21px}
+.deck2 .s3 .trade{margin-top:15px}
+.deck2 .s3 .trade-card{padding:16px 22px}
+.deck2 .s3 .take{margin-top:15px;font-size:25px}
+.deck2 .s4 .distinction{margin-top:30px}
+.deck2 .s4 .example{margin-top:24px}
+.deck2 .s4 .last{margin-top:24px;font-size:36px}
+.deck2 .s4 .concept{min-height:156px}
+.deck2 .s4 .last .under svg{bottom:-9px}
+.deck2 .s4 .example p{font-size:27px}
+.deck2 .intro h1{font-size:77px}
+.deck2 .intro-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:65px;margin-top:49px}
+.deck2 .hero-copy{font-size:43px;line-height:1.13;font-weight:800;letter-spacing:-.035em;color:var(--lav)}
+.deck2 .intro .risk-card{padding:34px 35px;min-height:285px;transform:rotate(-1.5deg)}
+.deck2 .intro .risk-card .label{font-size:20px}
+.deck2 .intro .risk-card .riskword{font-size:78px;margin-top:16px;white-space:nowrap}
+.deck2 .intro .risk-card p{font-size:29px}
+.deck2 .intro .risk-card small{font-size:21px;margin-top:19px}
+.deck2 .intro .risk-card .aster{font-size:36px;top:24px}
+.deck2 .intro .chain{margin-top:40px;gap:14px;font-size:24px;max-width:560px}
+.deck2 .intro .chain svg{width:54px;height:54px}
+.deck2 .intro .chain b{font-size:35px}
+.deck2 .intro-caption{margin-top:28px;font-size:24px;color:var(--muted)}
+.deck2 .safeguards h1{font-size:70px}
+.deck2 .safeguards .sub{margin-top:13px;color:var(--lav);font-weight:700;font-size:32px}
+.deck2 .req-air{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:37px}
+.deck2 .req-air .requirement{min-height:144px;border-radius:29px;grid-template-columns:86px 1fr;padding:22px;gap:22px;box-shadow:4px 5px 0 #090a0d}
+.deck2 .req-air .number{font-size:32px;border-radius:22px;padding:18px 0}
+.deck2 .req-air .name{font-size:31px;line-height:1.12}
+.deck2 .req-air .desc{font-size:23px;line-height:1.18;margin-top:8px}
+.deck2 .req-air .requirement:nth-child(4n/**/+1) .number{background:var(--purple);color:white}
+.deck2 .req-air .requirement:nth-child(4n/**/+2) .number{background:#4ab4ac;color:#062b2a}
+.deck2 .req-air .requirement:nth-child(4n/**/+3) .number{background:#f07f2a;color:#2e1604}
+.deck2 .req-air .requirement.focus .number{background:var(--lav);color:#292e59}
+.deck2 .follow h1{font-size:66px}
+.deck2 .follow .req-air{margin-top:29px;gap:16px}
+.deck2 .follow .req-air .requirement{min-height:111px;padding:15px 20px}
+.deck2 .follow .req-air .requirement:last-child{grid-column:1/-1;min-height:102px}
+.deck2 .follow .req-air .name{font-size:30px}
+.deck2 .follow .req-air .desc{font-size:22px}
+.deck2 .wide-impact{margin-top:23px;padding:23px 30px;background:var(--blue);color:#e1e3ff;border-radius:28px;display:flex;align-items:center;gap:32px}
+.deck2 .wide-impact .label{flex:0 0 300px;font-size:18px}
+.deck2 .wide-impact p{font-size:26px;margin:0}
+.deck2 .follow .risk-takeaway{margin-top:24px;font-size:30px}
+.deck2 .legal-air h1,.deck2 .trade-air h1{font-size:72px}
+.deck2 .legal-air .sub,.deck2 .trade-air .sub{margin-top:23px;font-size:30px;max-width:1110px}
+.deck2 .legal-air .legal-grid{gap:26px;margin-top:48px}
+.deck2 .legal-air .law{padding:34px 32px;min-height:245px;box-shadow:5px 6px 0 #000}
+.deck2 .legal-air .law .label{font-size:20px;margin-bottom:27px}
+.deck2 .legal-air .law h2{font-size:45px;line-height:1.1}
+.deck2 .legal-air .law p{font-size:29px;line-height:1.25;margin-top:19px}
+.deck2 .legal-air .take{margin-top:46px;font-size:34px;font-weight:800;color:var(--lav);letter-spacing:-.03em;max-width:1140px}
+.deck2 .explain .law:first-child{background:var(--blue);color:#e1e3ff}
+.deck2 .explain .law:first-child p{color:#e1e3ff}
+.deck2 .explain .law:first-child .label{color:var(--orange)}
+.deck2 .explain .law:last-child .label{color:var(--teal)}
+.deck2 .trade-air .trade{margin-top:38px;gap:28px}
+.deck2 .trade-air .trade-card{padding:30px 30px 34px;min-height:230px;border-radius:30px}
+.deck2 .trade-air .trade-card .label{font-size:18px;margin-bottom:20px}
+.deck2 .trade-air .trade-card h2{font-size:39px;line-height:1.07}
+.deck2 .trade-air .trade-card p{font-size:26px;line-height:1.25;margin-top:16px}
+.deck2 .account-air .distinction{margin-top:48px}
+.deck2 .account-air .concept{padding:30px;min-height:210px}
+.deck2 .account-air .example{margin-top:43px}
+.deck2 .account-air .example p{font-size:34px}
+.deck2 .account-air .example .code{font-size:24px;flex-basis:300px}
+.deck2 .question-air h1{font-size:77px;max-width:1150px}
+.deck2 .question-air .scenario{font-size:36px;margin-top:27px;font-weight:500}
+.deck2 .question-air .big-question{font-size:82px;line-height:1.04;font-weight:800;letter-spacing:-.05em;margin-top:70px;max-width:1160px}
+.deck2 .question-air .under svg{bottom:-17px;height:27px}
+.deck2 .final-mark .mark{position:absolute;right:105px;top:310px;width:140px;height:140px;color:var(--blue);transform:rotate(-13deg)}
+.deck2 .question-air h1{font-size:88px;line-height:1.06;max-width:1248px;margin-top:92px;font-weight:800;letter-spacing:-.035em}
+.deck2 .question-air .final-mark .mark{right:112px;top:485px;width:145px;height:145px}
+@media  screen{.deck2 .slide{display:block;opacity:0;visibility:hidden;pointer-events:none;z-index:0;transition:opacity 680ms ease-in-out,visibility 0s linear 680ms}
+.deck2 .slide.active{opacity:1;visibility:visible;pointer-events:auto;z-index:1;transition:opacity 680ms ease-in-out,visibility 0s}}
+@media  screen and (prefers-reduced-motion:reduce){.deck2 .slide,.deck2 .slide.active{transition:none!important}}
+@media  print{.deck2 .slide,.deck2 .slide.active{opacity:1!important;visibility:visible!important;transition:none!important;z-index:auto}}
+@media  screen and (prefers-reduced-motion: no-preference) {@keyframes m3-enter {
+    from { opacity: 0; translate: 0 18px; }
+    to   { opacity: 1; translate: 0 0; }
+  }
+@keyframes m3-shape {
+    from { opacity: 0; scale: .86; rotate: -12deg; }
+    to   { opacity: 1; scale: 1; rotate: 0deg; }
+  }
+@keyframes m3-ink {
+    from { clip-path: inset(-10px 100% -10px -10px); }
+    to   { clip-path: inset(-10px); }
+  }
+.deck2 .slide.active :is(.kicker,h1,.hero-copy,.intro-caption,.risk-card,.sub,.requirement,.wide-impact,.risk-takeaway,.lead,.opacity-row,.question,.law,.take,.trade-card,.concept,.neq,.example .code,.example p,.chain > *){
+    animation: m3-enter var(--motion-duration,840ms) cubic-bezier(.05,.7,.1,1) var(--motion-delay,200ms) both;
+  }
+.deck2 .slide.active .kicker{ --motion-delay: 40ms; --motion-duration: 600ms; }
+.deck2 .slide.active h1{ --motion-delay: 130ms; --motion-duration: 880ms; }
+.deck2 .slide.active :is(.sub,.lead,.hero-copy){ --motion-delay: 250ms; }
+.deck2 .slide.active :is(.risk-card,.requirement,.opacity-row,.law,.trade-card,.concept){ --motion-delay: 340ms; }
+.deck2 .slide.active :is(.requirement,.opacity-row,.law,.trade-card):nth-child(2){ --motion-delay: 450ms; }
+.deck2 .slide.active :is(.requirement,.opacity-row):nth-child(3){ --motion-delay: 560ms; }
+.deck2 .slide.active .requirement:nth-child(4){ --motion-delay: 670ms; }
+.deck2 .slide.active .concept.second{ --motion-delay: 550ms; }
+.deck2 .slide.active .neq{ --motion-delay: 450ms; }
+.deck2 .slide.active .chain > *{ --motion-delay: 340ms; --motion-duration: 680ms; }
+.deck2 .slide.active .chain > :nth-child(2){ --motion-delay: 410ms; }
+.deck2 .slide.active .chain > :nth-child(3){ --motion-delay: 480ms; }
+.deck2 .slide.active .chain > :nth-child(4){ --motion-delay: 550ms; }
+.deck2 .slide.active .chain > :nth-child(5){ --motion-delay: 620ms; }
+.deck2 .slide.active :is(.intro-caption,.wide-impact,.example .code){ --motion-delay: 620ms; }
+.deck2 .slide.active :is(.risk-takeaway,.question,.take,.example p){ --motion-delay: 730ms; --motion-duration: 760ms; }
+.deck2 .slide.active .mark{ animation: m3-shape 1040ms cubic-bezier(.2,.8,.2,1) 300ms both; }
+.deck2 .slide.active .risk-card .aster{ animation: m3-shape 960ms cubic-bezier(.2,.8,.2,1) 520ms both; }
+.deck2 .slide.active .under svg{ animation: m3-ink 760ms cubic-bezier(.2,.8,.2,1) 500ms both; }
+.deck2 .slide.active .progress path:first-child{ animation: m3-ink 1040ms cubic-bezier(.2,.8,.2,1) 240ms both; }}
+@media  print, (prefers-reduced-motion: reduce) {.deck2 .slide,.deck2 .slide *{ animation: none !important; }}
+.deck2 .section-break .part{font:700 22px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.deck2 .section-break .part-num{position:absolute;right:91px;top:57px;font:800 250px/.88 var(--sans);letter-spacing:-.09em;color:var(--accent);opacity:.24}
+.deck2 .section-break h1{position:absolute;left:96px;top:295px;font-size:110px;line-height:.94;max-width:1150px;letter-spacing:-.055em}
+.deck2 .section-break.dark-break{--accent:var(--lav)}
+.deck2 .section-break.dark-break .part-num{opacity:.46}
+@media  screen and (prefers-reduced-motion:no-preference){.deck2 .slide.active :is(.part,.part-num){animation:m3-enter 780ms cubic-bezier(.05,.7,.1,1) 120ms both}
+.deck2 .section-break.active h1{--motion-delay:250ms}
+.deck2 .qa.active .answer{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 360ms both}}
+.deck2 .section-break h1{max-width:1200px}
+.deck2 .access-air .distinction{margin-top:69px}
+.deck2 .access-air .concept{min-height:230px;padding:35px}
+.deck2 .access-air .concept p{font-size:30px}
+.deck2 .trade-air .trade{margin-top:27px}
+.deck2 .trade-air .trade-card{min-height:196px;padding:25px 30px}
+.deck2 .trade-air .trade-card h2{font-size:37px}
+.deck2 .trade-air .trade-card p{font-size:25px}
+.deck2 .trade-air .trade-take{font-size:30px;font-weight:800;color:var(--lav);margin-top:27px;letter-spacing:-.025em}
+.deck2 .code-air h1{font-size:75px;max-width:1220px}
+.deck2 .code-air .example{margin-top:44px;gap:48px;align-items:center}
+.deck2 .code-air .example .code{flex:0 0 370px;font-size:30px;padding:30px;line-height:1.55}
+.deck2 .code-air .code .label{font-size:17px;color:var(--teal)}
+.deck2 .code-air .ex-copy{flex:1}
+.deck2 .code-air .ex-copy .label{margin-bottom:14px}
+.deck2 .code-air .ex-copy h2{font-size:49px}
+.deck2 .code-air .ex-copy p{font-size:30px;margin-top:15px;font-weight:500}
+.deck2 .code-air .last{margin-top:44px;font-size:37px}
+@media  screen and (prefers-reduced-motion:no-preference){.deck2 .code-air.active .ex-copy{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 520ms both}
+.deck2 .code-air.active .last{animation:m3-enter 760ms cubic-bezier(.05,.7,.1,1) 730ms both}}
+.deck3 .slide{position:absolute;inset:0;display:none;overflow:hidden;padding:75px 96px 85px;background:var(--dark);color:var(--on);--accent:var(--lav);--track:#444654;--footer:#c8c5d0}
+.deck3 .slide.active{display:block}
+.deck3 .slide.orange{background:var(--orange);color:var(--orange-deep);--accent:var(--orange-deep);--track:#d19570;--footer:var(--orange-deep)}
+.deck3 .slide.teal{background:var(--teal);color:var(--teal-deep);--accent:var(--teal-deep);--track:#4eaaa5;--footer:var(--teal-deep)}
+.deck3 h1,.deck3 h2,.deck3 h3,.deck3 p{margin:0}
+.deck3 h1,.deck3 h2,.deck3 h3{font-weight:800;font-variation-settings:"opsz" 96;letter-spacing:-.035em}
+.deck3 h1{font-size:66px;line-height:1.03}
+.deck3 h2{font-size:39px;line-height:1.05}
+.deck3 p{font-size:26px;line-height:1.25}
+.deck3 .kicker,.deck3 .label,.deck3 .number,.deck3 .foot,.deck3 .micro{font-family:var(--mono);font-weight:700;letter-spacing:.015em}
+.deck3 .kicker{font-size:19px;color:var(--accent);margin-bottom:23px;text-transform:uppercase}
+.deck3 .label{font-size:17px;line-height:1.3;text-transform:uppercase}
+.deck3 .sub{font-size:27px;line-height:1.24;color:var(--muted)}
+.deck3 .footer{position:absolute;left:96px;right:96px;bottom:38px;display:flex;align-items:center;gap:38px;color:var(--footer)}
+.deck3 .progress{width:100%;height:18px;flex:1;overflow:visible}
+.deck3 .foot{font-size:18px;white-space:nowrap}
+.deck3 .under{position:relative;white-space:nowrap;display:inline-block}
+.deck3 .under svg{position:absolute;bottom:-13px;left:-2%;width:104%;height:20px;overflow:visible;color:var(--blue);pointer-events:none}
+.deck3 .stroke{stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.deck3 .surface{background:var(--surface);border-radius:27px}
+.deck3 .star{display:inline-block;vertical-align:middle}
+.deck3 .star svg{width:100%;height:100%}
+.deck3 .badge{border-radius:24px;padding:10px 19px;background:var(--orange);color:var(--orange-deep);font-size:24px;font-weight:800;display:inline-flex;align-items:center;gap:10px;box-shadow:5px 6px 0 #000}
+.deck3 .mono{font-family:var(--mono)}
+.deck3 .s1 h1{font-size:65px}
+.deck3 .risk-grid{display:grid;grid-template-columns:390px 1fr;gap:30px;margin-top:29px}
+.deck3 .risk-left{display:flex;flex-direction:column;gap:15px}
+.deck3 .risk-card{background:var(--orange);color:var(--orange-deep);padding:24px 27px 22px;border-radius:30px;box-shadow:6px 7px 0 #000;position:relative}
+.deck3 .risk-card .label{font-size:16px}
+.deck3 .risk-card .riskword{font-size:62px;font-weight:800;line-height:1.1;letter-spacing:-.07em;font-variation-settings:"opsz" 96}
+.deck3 .risk-card p{font-size:23px;margin-top:7px}
+.deck3 .risk-card small{display:block;font-size:17px;margin-top:11px}
+.deck3 .risk-card .aster{position:absolute;right:24px;top:25px;font-size:42px;line-height:1}
+.deck3 .chain{display:flex;align-items:center;gap:9px;margin:9px 0 2px;font-size:21px;font-weight:700}
+.deck3 .chain span{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;text-align:center}
+.deck3 .chain svg{width:31px;height:31px;fill:none;stroke:var(--lav);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.deck3 .chain b{color:var(--lav);font-size:26px}
+.deck3 .risk-left .impact{padding:16px 20px;background:#38427e;color:#e1e3ff;border-radius:22px}
+.deck3 .impact p{font-size:21px;margin-top:4px}
+.deck3 .requirements{display:flex;flex-direction:column;gap:7px}
+.deck3 .req-head{display:flex;align-items:center;justify-content:space-between;margin:0 1px 5px;color:var(--lav)}
+.deck3 .req-head .label{font-size:16px}
+.deck3 .requirement{display:grid;grid-template-columns:64px 1fr;align-items:center;gap:17px;min-height:55px;padding:7px 16px 7px 10px;background:var(--surface);border-radius:18px}
+.deck3 .requirement .number{background:var(--purple);color:white;border-radius:12px;padding:9px 0;text-align:center;font-size:21px}
+.deck3 .requirement:nth-child(3n) .number{background:#4ab4ac;color:#062b2a}
+.deck3 .requirement:nth-child(3n/**/+1) .number{background:#f07f2a;color:#2e1604}
+.deck3 .requirement .name{font-size:24px;line-height:1.05;font-weight:800;letter-spacing:-.025em}
+.deck3 .requirement .desc{font-size:19px;color:var(--muted);margin-top:3px}
+.deck3 .requirement.focus{outline:2px solid var(--lav);background:#32344b}
+.deck3 .requirement.focus .number{background:var(--lav);color:#292e59}
+.deck3 .risk-takeaway{margin-top:18px;color:var(--lav);font-weight:800;font-size:27px;letter-spacing:-.03em}
+.deck3 .s2 h1{font-size:79px;line-height:.99}
+.deck3 .s2 .lead{margin-top:23px;font-size:31px;max-width:1120px}
+.deck3 .opacity-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
+.deck3 .opacity-row{display:flex;align-items:center;gap:23px;background:var(--orange-deep);color:var(--orange);padding:17px 24px;border-radius:30px;box-shadow:6px 7px 0 #000;min-height:82px}
+.deck3 .opacity-row .number{font-size:28px;min-width:54px;height:54px;display:grid;place-items:center;background:var(--orange);color:var(--orange-deep);border-radius:17px}
+.deck3 .opacity-row h2{font-size:34px}
+.deck3 .opacity-row p{font-size:23px;color:#ffdbc8;margin-left:auto;text-align:right}
+.deck3 .s2 .question{font-weight:800;font-size:32px;line-height:1.18;margin-top:33px;letter-spacing:-.03em}
+.deck3 .s2 .mark{position:absolute;right:100px;top:60px;width:100px;height:100px;color:var(--blue);transform:rotate(13deg)}
+.deck3 .s3 h1{font-size:65px}
+.deck3 .legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:27px}
+.deck3 .law{position:relative;padding:18px 22px 20px;border-radius:28px;background:var(--surface);min-height:145px}
+.deck3 .law .label{font-size:16px;color:var(--lav);margin-bottom:9px}
+.deck3 .law h2{font-size:35px;letter-spacing:-.04em}
+.deck3 .law p{font-size:22px;margin-top:7px;color:var(--muted);max-width:535px}
+.deck3 .law:nth-child(2) .label{color:#73d1cb}
+.deck3 .law:nth-child(3) .label{color:var(--orange)}
+.deck3 .law .glyph{position:absolute;right:20px;top:20px;width:36px;height:36px;color:var(--lav)}
+.deck3 .law:nth-child(2) .glyph{color:#73d1cb}
+.deck3 .law:nth-child(3) .glyph{color:var(--orange)}
+.deck3 .trade{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.deck3 .trade-card{padding:20px 23px;background:#38427e;color:#e1e3ff;border-radius:25px;box-shadow:5px 6px 0 #000}
+.deck3 .trade-card.second{background:#2d5655;color:#d8f8f2}
+.deck3 .trade-card .label{font-size:15px;margin-bottom:8px}
+.deck3 .trade-card h2{font-size:28px;letter-spacing:-.025em}
+.deck3 .trade-card p{font-size:20px;margin-top:7px;line-height:1.22}
+.deck3 .s3 .take{font-size:26px;color:var(--lav);font-weight:800;margin-top:19px;letter-spacing:-.02em}
+.deck3 .s4 h1{font-size:75px;max-width:1150px}
+.deck3 .s4 .mark{position:absolute;right:100px;top:71px;width:110px;height:110px;transform:rotate(-14deg);color:#0e6564}
+.deck3 .distinction{display:grid;grid-template-columns:1fr 65px 1fr;gap:15px;align-items:center;margin-top:38px}
+.deck3 .concept{min-height:164px;padding:23px 26px;border-radius:32px;box-shadow:7px 8px 0 #003735;background:#c2e9e4}
+.deck3 .concept.second{background:var(--teal-deep);color:#a5f4e9;box-shadow:7px 8px 0 #152625}
+.deck3 .concept .label{font-size:16px}
+.deck3 .concept h2{font-size:45px;margin-top:10px}
+.deck3 .concept p{font-size:26px;margin-top:8px}
+.deck3 .neq{font-size:56px;font-weight:800;text-align:center}
+.deck3 .example{display:flex;align-items:center;gap:24px;margin-top:30px}
+.deck3 .example .code{flex:0 0 280px;padding:19px 23px;border-radius:23px;box-shadow:5px 6px 0 #003735;background:#121318;color:var(--lav);font:700 19px/1.5 var(--mono);transform:rotate(-2deg)}
+.deck3 .example p{font-size:29px;font-weight:700;max-width:835px;letter-spacing:-.025em}
+.deck3 .s4 .last{margin-top:33px;font-size:38px;line-height:1.1;font-weight:800;letter-spacing:-.035em;max-width:1190px}
+.deck3 .s4 .last .under{white-space:normal}
+@media (max-width:550px){}
+@media (prefers-reduced-motion:reduce){}
+@media  print{.deck3 .slide{display:block!important;position:relative;width:1440px;height:810px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.deck3 .slide:last-child{page-break-after:auto;break-after:auto}}
+.deck3 .s1 .risk-grid{margin-top:23px}
+.deck3 .s1 .requirements{gap:6px}
+.deck3 .s1 .requirement{min-height:52px;padding:5px 16px 5px 10px}
+.deck3 .s1 .req-head{margin-bottom:2px}
+.deck3 .s1 .risk-takeaway{margin:0;font-size:25px;line-height:1.16}
+.deck3 .s1 .chain{gap:5px;font-size:18px}
+.deck3 .s1 .chain span{flex:1 1 0;white-space:nowrap}
+.deck3 .s1 .risk-card .riskword{font-size:59px}
+.deck3 .s3 .legal-grid{gap:13px;margin-top:23px}
+.deck3 .s3 .law{min-height:132px;padding:15px 22px}
+.deck3 .s3 .law p{font-size:21px}
+.deck3 .s3 .trade{margin-top:15px}
+.deck3 .s3 .trade-card{padding:16px 22px}
+.deck3 .s3 .take{margin-top:15px;font-size:25px}
+.deck3 .s4 .distinction{margin-top:30px}
+.deck3 .s4 .example{margin-top:24px}
+.deck3 .s4 .last{margin-top:24px;font-size:36px}
+.deck3 .s4 .concept{min-height:156px}
+.deck3 .s4 .last .under svg{bottom:-9px}
+.deck3 .s4 .example p{font-size:27px}
+.deck3 .intro h1{font-size:77px}
+.deck3 .intro-grid{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:65px;margin-top:49px}
+.deck3 .hero-copy{font-size:43px;line-height:1.13;font-weight:800;letter-spacing:-.035em;color:var(--lav)}
+.deck3 .intro .risk-card{padding:34px 35px;min-height:285px;transform:rotate(-1.5deg)}
+.deck3 .intro .risk-card .label{font-size:20px}
+.deck3 .intro .risk-card .riskword{font-size:78px;margin-top:16px;white-space:nowrap}
+.deck3 .intro .risk-card p{font-size:29px}
+.deck3 .intro .risk-card small{font-size:21px;margin-top:19px}
+.deck3 .intro .risk-card .aster{font-size:36px;top:24px}
+.deck3 .intro .chain{margin-top:40px;gap:14px;font-size:24px;max-width:560px}
+.deck3 .intro .chain svg{width:54px;height:54px}
+.deck3 .intro .chain b{font-size:35px}
+.deck3 .intro-caption{margin-top:28px;font-size:24px;color:var(--muted)}
+.deck3 .safeguards h1{font-size:70px}
+.deck3 .safeguards .sub{margin-top:13px;color:var(--lav);font-weight:700;font-size:32px}
+.deck3 .req-air{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:37px}
+.deck3 .req-air .requirement{min-height:144px;border-radius:29px;grid-template-columns:86px 1fr;padding:22px;gap:22px;box-shadow:4px 5px 0 #090a0d}
+.deck3 .req-air .number{font-size:32px;border-radius:22px;padding:18px 0}
+.deck3 .req-air .name{font-size:31px;line-height:1.12}
+.deck3 .req-air .desc{font-size:23px;line-height:1.18;margin-top:8px}
+.deck3 .req-air .requirement:nth-child(4n/**/+1) .number{background:var(--purple);color:white}
+.deck3 .req-air .requirement:nth-child(4n/**/+2) .number{background:#4ab4ac;color:#062b2a}
+.deck3 .req-air .requirement:nth-child(4n/**/+3) .number{background:#f07f2a;color:#2e1604}
+.deck3 .req-air .requirement.focus .number{background:var(--lav);color:#292e59}
+.deck3 .follow h1{font-size:66px}
+.deck3 .follow .req-air{margin-top:29px;gap:16px}
+.deck3 .follow .req-air .requirement{min-height:111px;padding:15px 20px}
+.deck3 .follow .req-air .requirement:last-child{grid-column:1/-1;min-height:102px}
+.deck3 .follow .req-air .name{font-size:30px}
+.deck3 .follow .req-air .desc{font-size:22px}
+.deck3 .wide-impact{margin-top:23px;padding:23px 30px;background:var(--blue);color:#e1e3ff;border-radius:28px;display:flex;align-items:center;gap:32px}
+.deck3 .wide-impact .label{flex:0 0 300px;font-size:18px}
+.deck3 .wide-impact p{font-size:26px;margin:0}
+.deck3 .follow .risk-takeaway{margin-top:24px;font-size:30px}
+.deck3 .legal-air h1,.deck3 .trade-air h1{font-size:72px}
+.deck3 .legal-air .sub,.deck3 .trade-air .sub{margin-top:23px;font-size:30px;max-width:1110px}
+.deck3 .legal-air .legal-grid{gap:26px;margin-top:48px}
+.deck3 .legal-air .law{padding:34px 32px;min-height:245px;box-shadow:5px 6px 0 #000}
+.deck3 .legal-air .law .label{font-size:20px;margin-bottom:27px}
+.deck3 .legal-air .law h2{font-size:45px;line-height:1.1}
+.deck3 .legal-air .law p{font-size:29px;line-height:1.25;margin-top:19px}
+.deck3 .legal-air .take{margin-top:46px;font-size:34px;font-weight:800;color:var(--lav);letter-spacing:-.03em;max-width:1140px}
+.deck3 .explain .law:first-child{background:var(--blue);color:#e1e3ff}
+.deck3 .explain .law:first-child p{color:#e1e3ff}
+.deck3 .explain .law:first-child .label{color:var(--orange)}
+.deck3 .explain .law:last-child .label{color:var(--teal)}
+.deck3 .trade-air .trade{margin-top:38px;gap:28px}
+.deck3 .trade-air .trade-card{padding:30px 30px 34px;min-height:230px;border-radius:30px}
+.deck3 .trade-air .trade-card .label{font-size:18px;margin-bottom:20px}
+.deck3 .trade-air .trade-card h2{font-size:39px;line-height:1.07}
+.deck3 .trade-air .trade-card p{font-size:26px;line-height:1.25;margin-top:16px}
+.deck3 .account-air .distinction{margin-top:48px}
+.deck3 .account-air .concept{padding:30px;min-height:210px}
+.deck3 .account-air .example{margin-top:43px}
+.deck3 .account-air .example p{font-size:34px}
+.deck3 .account-air .example .code{font-size:24px;flex-basis:300px}
+.deck3 .question-air h1{font-size:77px;max-width:1150px}
+.deck3 .question-air .scenario{font-size:36px;margin-top:27px;font-weight:500}
+.deck3 .question-air .big-question{font-size:82px;line-height:1.04;font-weight:800;letter-spacing:-.05em;margin-top:70px;max-width:1160px}
+.deck3 .question-air .under svg{bottom:-17px;height:27px}
+.deck3 .final-mark .mark{position:absolute;right:105px;top:310px;width:140px;height:140px;color:var(--blue);transform:rotate(-13deg)}
+.deck3 .question-air h1{font-size:88px;line-height:1.06;max-width:1248px;margin-top:92px;font-weight:800;letter-spacing:-.035em}
+.deck3 .question-air .final-mark .mark{right:112px;top:485px;width:145px;height:145px}
+@media  screen{.deck3 .slide{display:block;opacity:0;visibility:hidden;pointer-events:none;z-index:0;transition:opacity 680ms ease-in-out,visibility 0s linear 680ms}
+.deck3 .slide.active{opacity:1;visibility:visible;pointer-events:auto;z-index:1;transition:opacity 680ms ease-in-out,visibility 0s}}
+@media  screen and (prefers-reduced-motion:reduce){.deck3 .slide,.deck3 .slide.active{transition:none!important}}
+@media  print{.deck3 .slide,.deck3 .slide.active{opacity:1!important;visibility:visible!important;transition:none!important;z-index:auto}}
+@media  screen and (prefers-reduced-motion: no-preference) {@keyframes m3-enter {
+    from { opacity: 0; translate: 0 18px; }
+    to   { opacity: 1; translate: 0 0; }
+  }
+@keyframes m3-shape {
+    from { opacity: 0; scale: .86; rotate: -12deg; }
+    to   { opacity: 1; scale: 1; rotate: 0deg; }
+  }
+@keyframes m3-ink {
+    from { clip-path: inset(-10px 100% -10px -10px); }
+    to   { clip-path: inset(-10px); }
+  }
+.deck3 .slide.active :is(.kicker,h1,.hero-copy,.intro-caption,.risk-card,.sub,.requirement,.wide-impact,.risk-takeaway,.lead,.opacity-row,.question,.law,.take,.trade-card,.concept,.neq,.example .code,.example p,.chain > *){
+    animation: m3-enter var(--motion-duration,840ms) cubic-bezier(.05,.7,.1,1) var(--motion-delay,200ms) both;
+  }
+.deck3 .slide.active .kicker{ --motion-delay: 40ms; --motion-duration: 600ms; }
+.deck3 .slide.active h1{ --motion-delay: 130ms; --motion-duration: 880ms; }
+.deck3 .slide.active :is(.sub,.lead,.hero-copy){ --motion-delay: 250ms; }
+.deck3 .slide.active :is(.risk-card,.requirement,.opacity-row,.law,.trade-card,.concept){ --motion-delay: 340ms; }
+.deck3 .slide.active :is(.requirement,.opacity-row,.law,.trade-card):nth-child(2){ --motion-delay: 450ms; }
+.deck3 .slide.active :is(.requirement,.opacity-row):nth-child(3){ --motion-delay: 560ms; }
+.deck3 .slide.active .requirement:nth-child(4){ --motion-delay: 670ms; }
+.deck3 .slide.active .concept.second{ --motion-delay: 550ms; }
+.deck3 .slide.active .neq{ --motion-delay: 450ms; }
+.deck3 .slide.active .chain > *{ --motion-delay: 340ms; --motion-duration: 680ms; }
+.deck3 .slide.active .chain > :nth-child(2){ --motion-delay: 410ms; }
+.deck3 .slide.active .chain > :nth-child(3){ --motion-delay: 480ms; }
+.deck3 .slide.active .chain > :nth-child(4){ --motion-delay: 550ms; }
+.deck3 .slide.active .chain > :nth-child(5){ --motion-delay: 620ms; }
+.deck3 .slide.active :is(.intro-caption,.wide-impact,.example .code){ --motion-delay: 620ms; }
+.deck3 .slide.active :is(.risk-takeaway,.question,.take,.example p){ --motion-delay: 730ms; --motion-duration: 760ms; }
+.deck3 .slide.active .mark{ animation: m3-shape 1040ms cubic-bezier(.2,.8,.2,1) 300ms both; }
+.deck3 .slide.active .risk-card .aster{ animation: m3-shape 960ms cubic-bezier(.2,.8,.2,1) 520ms both; }
+.deck3 .slide.active .under svg{ animation: m3-ink 760ms cubic-bezier(.2,.8,.2,1) 500ms both; }
+.deck3 .slide.active .progress path:first-child{ animation: m3-ink 1040ms cubic-bezier(.2,.8,.2,1) 240ms both; }}
+@media  print, (prefers-reduced-motion: reduce) {.deck3 .slide,.deck3 .slide *{ animation: none !important; }}
+.deck3 .bosco-intro h1{font-size:83px}
+.deck3 .bosco-intro .intro-grid{margin-top:39px;grid-template-columns:1.12fr 1fr;gap:55px}
+.deck3 .bosco-intro .risk-card{min-height:275px;background:var(--teal);color:var(--teal-deep)}
+.deck3 .bosco-intro .risk-card .riskword{font-size:83px}
+.deck3 .bosco-intro .chain{margin-top:34px;gap:8px;font-size:21px}
+.deck3 .bosco-intro .chain span{white-space:nowrap}
+.deck3 .bosco-intro .hero-copy{font-size:39px}
+.deck3 .bosco-intro .intro-caption{font-size:23px;line-height:1.3}
+.deck3 .dispute h1{font-size:78px}
+.deck3 .dispute .lead{max-width:1090px}
+.deck3 .dispute .trade{margin-top:32px;gap:24px}
+.deck3 .dispute .trade-card{background:#ffe0cc;color:var(--orange-deep);padding:25px 30px;min-height:220px;border-radius:30px}
+.deck3 .dispute .trade-card.second{background:var(--orange-deep);color:#ffdbc8}
+.deck3 .dispute .trade-card .label{font-size:17px;margin-bottom:13px}
+.deck3 .dispute .trade-card h2{font-size:39px}
+.deck3 .dispute .trade-card p{font-size:26px;line-height:1.25;margin-top:13px}
+.deck3 .dispute .question{margin-top:29px;font-size:32px}
+.deck3 .judgment h1{font-size:69px}
+.deck3 .judgment .sub{margin-top:12px;font-size:29px}
+.deck3 .judgment .requirements{margin-top:28px;gap:13px}
+.deck3 .judgment .requirement{min-height:107px;grid-template-columns:76px 1fr;gap:23px;border-radius:25px;padding:14px 23px 14px 17px}
+.deck3 .judgment .requirement .number{font-size:29px;padding:17px 0;border-radius:19px}
+.deck3 .judgment .requirement .name{font-size:31px}
+.deck3 .judgment .requirement .desc{font-size:24px;line-height:1.2;margin-top:6px}
+.deck3 .judgment .risk-takeaway{margin-top:21px;font-size:29px}
+.deck3 .asymmetric h1{font-size:76px;max-width:1150px}
+.deck3 .asymmetric .distinction{margin-top:34px;grid-template-columns:1fr 65px 1fr}
+.deck3 .asymmetric .concept{min-height:217px;padding:26px 30px}
+.deck3 .asymmetric .concept h2{font-size:43px}
+.deck3 .asymmetric .concept p{font-size:26px;line-height:1.2}
+.deck3 .asymmetric .common{margin-top:33px;padding:19px 28px;border:3px solid var(--teal-deep);border-radius:24px;display:flex;align-items:center;gap:24px}
+.deck3 .asymmetric .common .label{flex:0 0 222px;font-size:17px}
+.deck3 .asymmetric .common p{font-size:30px;font-weight:800;letter-spacing:-.025em}
+.deck3 .asymmetric .mark{width:90px;height:90px;position:absolute;right:102px;top:68px;color:#0e6564;transform:rotate(-14deg)}
+.deck3 .sector h1{font-size:72px}
+.deck3 .sector .sub{font-size:30px;margin-top:16px}
+.deck3 .sector .legal-grid{margin-top:32px;gap:25px}
+.deck3 .sector .law{min-height:232px;padding:26px 30px;box-shadow:5px 6px 0 #000}
+.deck3 .sector .law .label{font-size:18px;margin-bottom:19px}
+.deck3 .sector .law h2{font-size:40px}
+.deck3 .sector .law p{font-size:26px;line-height:1.25;margin-top:13px}
+.deck3 .sector .take{margin-top:30px;font-size:33px;line-height:1.16;font-weight:800;color:var(--lav);letter-spacing:-.025em}
+.deck3 .public .law:first-child{background:var(--blue);color:#e1e3ff}
+.deck3 .public .law:first-child p{color:#e1e3ff}
+.deck3 .public .law:first-child .label{color:var(--teal)}
+.deck3 .private .law:first-child .label{color:var(--orange)}
+.deck3 .private .law:nth-child(2){background:#2d5655;color:#d8f8f2}
+.deck3 .private .law:nth-child(2) p{color:#d8f8f2}
+.deck3 .floor h1{font-size:74px;max-width:1170px}
+.deck3 .floor .lead{margin-top:19px;font-size:31px;max-width:1120px}
+.deck3 .floor .floor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:39px}
+.deck3 .floor .concept{padding:25px;min-height:210px;background:#c2e9e4;color:var(--teal-deep)}
+.deck3 .floor .concept:nth-child(2){background:var(--teal-deep);color:#a5f4e9}
+.deck3 .floor .concept:nth-child(3){background:#e3e6ff;color:#292e59}
+.deck3 .floor .concept .label{font-size:17px}
+.deck3 .floor .concept h2{font-size:39px;margin-top:14px}
+.deck3 .floor .concept p{font-size:24px;line-height:1.2;margin-top:12px}
+.deck3 .floor .last{margin-top:36px;font-size:34px;line-height:1.14;font-weight:800;letter-spacing:-.03em}
+.deck3 .floor .under{white-space:normal}
+@media  screen and (prefers-reduced-motion:no-preference){.deck3 .slide.active :is(.common,.last){animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 730ms both}
+.deck3 .floor.active .concept:nth-child(2){--motion-delay:450ms}
+.deck3 .floor.active .concept:nth-child(3){--motion-delay:560ms}
+.deck3 .dispute.active .trade-card:nth-child(2){--motion-delay:450ms}}
+.deck3 .case-brief h1{font-size:72px}
+.deck3 .case-brief .sub{margin-top:13px;font-size:29px}
+.deck3 .case-brief .trade{margin-top:30px;gap:24px}
+.deck3 .case-brief .trade-card{min-height:200px;padding:25px 29px;border-radius:30px}
+.deck3 .case-brief .trade-card h2{font-size:39px}
+.deck3 .case-brief .trade-card .label{font-size:17px;margin-bottom:14px}
+.deck3 .case-brief .trade-card p{font-size:26px;margin-top:12px}
+.deck3 .case-brief .trade-card.second{background:var(--teal);color:var(--teal-deep)}
+.deck3 .case-brief .take{font-size:34px;font-weight:800;color:var(--lav);margin-top:30px;letter-spacing:-.03em}
+.deck3 .research h1{font-size:58px;line-height:1.06;max-width:1248px}
+.deck3 .research .answer{font-size:43px;font-weight:800;letter-spacing:-.035em;margin-top:24px}
+.deck3 .research .distinction{margin-top:24px}
+.deck3 .research .concept{min-height:155px;padding:20px 25px}
+.deck3 .research .concept h2{font-size:39px;margin-top:6px}
+.deck3 .research .concept p{font-size:24px;margin-top:7px}
+.deck3 .research .common{margin-top:24px;padding:15px 23px}
+.deck3 .research .common p{font-size:27px}
+.deck3 .research .common .label{flex-basis:200px}
+.deck3 .research .under svg{bottom:-10px}
+.deck3 .floor .last{font-size:35px}
+.deck3 .private .sub{color:var(--muted)}
+@media  screen and (prefers-reduced-motion:no-preference){.deck3 .slide.active .answer{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 260ms both}
+.deck3 .research.active .concept{--motion-delay:390ms}
+.deck3 .research.active .concept.second{--motion-delay:550ms}}
+.deck3 .section-break .part{font:700 22px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--accent)}
+.deck3 .section-break .part-num{position:absolute;right:91px;top:57px;font:800 250px/.88 var(--sans);letter-spacing:-.09em;color:var(--accent);opacity:.24}
+.deck3 .section-break h1{position:absolute;left:96px;top:295px;font-size:110px;line-height:.94;max-width:1150px;letter-spacing:-.055em}
+.deck3 .section-break.dark-break{--accent:var(--lav)}
+.deck3 .section-break.dark-break .part-num{opacity:.46}
+.deck3 .facts h1,.deck3 .holdings h1{font-size:75px}
+.deck3 .facts .sub{font-size:30px;margin-top:18px;max-width:1120px}
+.deck3 .facts .trade{margin-top:38px;gap:26px}
+.deck3 .facts .trade-card{min-height:220px;padding:28px 32px}
+.deck3 .facts .trade-card h2{font-size:39px}
+.deck3 .facts .trade-card p{font-size:27px;margin-top:14px}
+.deck3 .facts .trade-card .label{font-size:18px;margin-bottom:17px}
+.deck3 .facts .trade-card.second{background:#512300;color:#ffdbc8}
+.deck3 .facts .take{font-size:31px;margin-top:30px;color:var(--lav);font-weight:800}
+.deck3 .holdings .req-air{display:flex;flex-direction:column;gap:15px;margin-top:35px}
+.deck3 .holdings .req-air .requirement{min-height:99px;padding:14px 20px;grid-template-columns:70px 1fr;gap:23px}
+.deck3 .holdings .req-air .number{font-size:27px;padding:12px 0;border-radius:17px}
+.deck3 .holdings .req-air .name{font-size:31px}
+.deck3 .holdings .req-air .desc{font-size:24px;margin-top:5px}
+.deck3 .holdings .take{font-size:31px;margin-top:29px;color:var(--lav);font-weight:800}
+.deck3 .qa h1{font-size:70px;line-height:1.06;max-width:1230px;margin-top:26px}
+.deck3 .qa .answer{margin-top:51px;font-size:74px;line-height:1.04;font-weight:800;letter-spacing:-.05em}
+.deck3 .qa .answer strong{font-size:112px;display:block;line-height:.95;margin-bottom:15px}
+.deck3 .qa .under svg{bottom:-13px;height:22px}
+.deck3 .compare h1{font-size:77px}
+.deck3 .compare .distinction{margin-top:42px}
+.deck3 .compare .concept{min-height:230px;padding:28px 30px}
+.deck3 .compare .concept h2{font-size:42px;line-height:1.05}
+.deck3 .compare .concept p{font-size:27px;margin-top:15px}
+.deck3 .compare .common{margin-top:35px;padding:23px 30px}
+.deck3 .compare .common p{font-size:30px}
+.deck3 .floor .floor-grid{margin-top:39px}
+.deck3 .floor .concept{min-height:220px}
+.deck3 .floor .last{margin-top:32px;font-size:32px}
+.deck3 .closing h1{font-size:99px;line-height:1.02;letter-spacing:-.055em;margin-top:146px;max-width:1248px}
+.deck3 .closing .mark{position:absolute;right:108px;top:120px;width:110px;height:110px;color:#0e6564;transform:rotate(-12deg)}
+.deck3 .closing .under svg{height:27px;bottom:-19px}
+@media  screen and (prefers-reduced-motion:no-preference){.deck3 .slide.active :is(.part,.part-num){animation:m3-enter 780ms cubic-bezier(.05,.7,.1,1) 120ms both}
+.deck3 .section-break.active h1{--motion-delay:250ms}
+.deck3 .qa.active .answer{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 360ms both}}
+.deck3 .floor:not(.teal) .concept{box-shadow:5px 6px 0 #000}
+.deck3 .floor:not(.teal) .concept:nth-child(2){background:#2d5655;color:#d8f8f2}
+.deck3 .floor:not(.teal) .lead{color:var(--muted)}
+/* Unified cover and global editorial hierarchy. */
+.deck1 .unified-cover{background:linear-gradient(120deg,#121318 60%,#1c2033);padding-top:73px}
+.deck1 .unified-cover .cover-split{display:grid;grid-template-columns:1.43fr 1fr;gap:50px;align-items:center;margin-top:46px}
+.deck1 .unified-cover h1{font-size:67px;line-height:1.065;letter-spacing:-.045em;max-width:740px;color:var(--on)}
+.deck1 .unified-cover .authors{display:flex;flex-wrap:wrap;gap:9px 17px;margin-top:36px;font-size:22px;color:var(--muted);font-weight:700;line-height:1.4}
+.deck1 .unified-cover .authors span+span:before{content:'·';color:var(--lav);margin-right:17px}
+.deck1 .cover-index{background:#29292f;border-radius:31px;padding:28px 30px;box-shadow:7px 8px 0 #08090d;align-self:center}
+.deck1 .cover-index .label{color:var(--lav);margin-bottom:15px;font-size:18px}
+.deck1 .index-entry{display:grid;grid-template-columns:43px 1fr;gap:12px;align-items:center;border-top:1px solid #464652;padding:15px 0;font-size:25px;line-height:1.1}
+.deck1 .index-entry:last-child{padding-bottom:0}.deck1 .index-entry span{font:700 20px var(--mono);color:var(--lav);letter-spacing:.06em}.deck1 .index-entry:nth-of-type(2) span,.deck1 .index-entry:nth-of-type(6) span{color:var(--orange)}.deck1 .index-entry:nth-of-type(7) span{color:var(--teal)}
+.deck .section-break .part-num{letter-spacing:.035em;right:89px;font-variant-numeric:tabular-nums}.deck .section-break.nested-break .part-num{font-size:196px;letter-spacing:.035em}.deck .section-break .part{max-width:750px;line-height:1.25}.deck .foot{font-variant-numeric:tabular-nums;letter-spacing:.055em}
+.deck .slide.case-ink{background:#1d1718;--accent:#ffb689;--track:#51413d}.deck .slide.law-ink{background:#161924;--accent:#c0c4ff;--track:#42465d}.deck .slide.account-ink,.deck .slide.ruling-ink{background:#132324;--accent:#73d1cb;--track:#34514e}
+.deck .slide.ruling-ink .take,.deck .slide.account-ink .take,.deck .slide.account-ink .last{color:var(--teal)!important}
+.deck .slide.section-break.dark-break{background:#171b29}
+@media screen and (prefers-reduced-motion:no-preference){.deck1 .unified-cover.active .cover-index{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 340ms both}.deck1 .unified-cover.active .authors{animation:m3-enter 840ms cubic-bezier(.05,.7,.1,1) 480ms both}}
+@media print{@page{size:15in 8.4375in;margin:0}html,body,.viewer{height:auto;overflow:visible;background:white}.frame{position:static;width:1440px;height:auto;transform:none!important}.deck .slide{display:block!important;position:relative;width:1440px;height:810px;opacity:1!important;visibility:visible!important;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}.deck3 .slide:last-child{break-after:auto;page-break-after:auto}}
+</style></head><body><main class="viewer" aria-label="Algorithmic transparency presentation"><div class="frame"><div class="deck deck1"><section class="slide unified-cover active" aria-label="Slide 1 — Research question" data-section="00"><div class="kicker">ALGORITHMIC TRANSPARENCY · RESEARCH QUESTION</div><div class="cover-split"><div class="cover-main"><h1>Should private companies and public authorities be subject to different standards of algorithmic transparency?</h1><div class="authors"><span>Marco Pertegato</span><span>Nicolò Albonetti</span><span>Michele Tabacchi</span></div></div><div class="cover-index"><div class="label">CONTENTS</div><div class="index-entry"><span>01</span><strong>The SCHUFA case</strong></div><div class="index-entry"><span>02</span><strong>Article 22 &amp; the Court’s ruling</strong></div><div class="index-entry"><span>03</span><strong>High-risk AI systems</strong></div><div class="index-entry"><span>04</span><strong>Algorithmic transparency</strong></div><div class="index-entry"><span>05</span><strong>The BOSCO case</strong></div><div class="index-entry"><span>06</span><strong>Research question &amp; results</strong></div></div></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 2 — The SCHUFA case" class="slide section-break orange" data-section="01"><div class="part">PART 01</div><div aria-hidden="true" class="part-num">01</div><h1>The SCHUFA case</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 3 — From personal data to a refused loan." class="slide facts-merged case-ink" data-section="01"><div class="kicker">01 · CASE STUDY / CREDIT SCORING &amp; THE FACTS</div><h1>From personal data to a refused loan.</h1><p class="sub">SCHUFA is a German private credit agency that predicts an individual’s ability to repay a loan.</p><div class="mini-flow"><div class="flow-node"><div class="label">INPUT</div><h2>Personal data</h2></div><div aria-hidden="true" class="arrow">→</div><div class="flow-node score"><div class="label">SCHUFA</div><h2>Credit score</h2></div><div aria-hidden="true" class="arrow">→</div><div class="flow-node"><div class="label">BANK</div><h2>Credit decision</h2></div></div><div class="trade"><article class="trade-card"><div class="label">OQ · THE INDIVIDUAL</div><h2>A loan refused.</h2><p>After a negative score, OQ asked how it had been calculated.</p></article><article class="trade-card second"><div class="label">SCHUFA · THE CREDIT AGENCY</div><h2>Trade secrecy.</h2><p>Only a general description of the methodology was provided.</p></article></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 4 — From complaint to the CJEU." class="slide holdings referral law-ink" data-section="01"><div class="kicker">01 · CASE STUDY / THE LEGAL DISPUTE</div><h1>From complaint to the CJEU.</h1><div class="req-air"><div class="requirement"><span class="number">01</span><div><div class="name">German data protection authority</div><div class="desc">Rejected OQ’s complaint, finding compliance with national law.</div></div></div><div class="requirement"><span class="number">02</span><div><div class="name">German court</div><div class="desc">OQ challenged the authority’s decision.</div></div></div><div class="requirement"><span class="number">03</span><div><div class="name">Court of Justice of the European Union</div><div class="desc">Asked to clarify whether Article 22 GDPR applied to credit scoring.</div></div></div></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 5 — Article 22 of the GDPR" class="slide section-break dark-break nested-break" data-section="02.1"><div class="part">02 · ARTICLE 22 &amp; THE COURT’S RULING</div><div aria-hidden="true" class="part-num">02.1</div><h1>Article 22<br/>of the GDPR</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 6 — Is the score itself a decision, or merely a preparatory step?" class="slide central orange" data-section="02.1"><div class="kicker">02.1 · ARTICLE 22 / THE CENTRAL QUESTION</div><div aria-hidden="true" class="mark"><svg viewbox="0 0 100 100"><path d="M50 4v92M10 27l80 46M10 73l80-46" fill="none" stroke="currentColor" stroke-width="13"></path></svg></div><h1>Is the score itself<br/>a <span class="under">decision,<svg preserveaspectratio="none" viewbox="0 0 320 18"><path class="stroke" d="M3 7Q65 0 140 7T316 5Q260 17 185 10" stroke-width="4"></path></svg></span><br/>or merely a preparatory step?</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 7 — A prohibition in principle." class="slide holdings conditions law-ink" data-section="02.1"><div class="kicker">02.1 · ARTICLE 22 / GDPR</div><h1>A prohibition in principle.</h1><p class="sub">Not simply a right to object. Three conditions must be met.</p><div class="req-air"><div class="requirement"><span class="number">01</span><div><div class="name">A decision</div><div class="desc">Even an intermediate score, if it determines the outcome.</div></div></div><div class="requirement"><span class="number">02</span><div><div class="name">Solely automated processing</div><div class="desc">Without meaningful human involvement.</div></div></div><div class="requirement"><span class="number">03</span><div><div class="name">Legal or similarly significant effects</div><div class="desc">For example, refusal of credit and its financial consequences.</div></div></div></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 8 — The Court’s ruling" class="slide section-break teal nested-break" data-section="02.2"><div class="part">02 · ARTICLE 22 &amp; THE COURT’S RULING</div><div aria-hidden="true" class="part-num">02.2</div><h1>The Court’s<br/>ruling</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 9 — A credit score can itself be a decision." class="slide teal ruling" data-section="02.2"><div class="kicker">02.2 · THE COURT’S RULING</div><h1>A credit score can itself be a <span class="under">decision.<svg preserveaspectratio="none" viewbox="0 0 320 18"><path class="stroke" d="M3 7Q65 0 140 7T316 5Q260 17 185 10" stroke-width="4"></path></svg></span></h1><p class="lead">Article 22 GDPR applies when the score plays a determining role in the bank’s decision to grant or refuse credit.</p><div class="distinction"><div class="concept"><div class="label">SCHUFA</div><h2>Credit score</h2><p>Produces the assessment.</p></div><div aria-hidden="true" class="neq">→</div><div class="concept second"><div class="label">BANK</div><h2>Credit decision</h2><p>Relies heavily on the score.</p></div></div><p class="take">SCHUFA is therefore effectively making a decision too.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 10 — The accountability problem" class="slide section-break teal nested-break" data-section="02.3"><div class="part">02 · ARTICLE 22 &amp; THE COURT’S RULING</div><div aria-hidden="true" class="part-num">02.3</div><h1>The accountability<br/>problem</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 11 — Who can explain the decision?" class="slide sector gap-slide account-ink" data-section="02.3"><div class="kicker">02.3 · ACCOUNTABILITY / THE RISK</div><h1>Who can explain the decision?</h1><p class="hypothetical">Without the Court’s interpretation, each actor could shift responsibility.</p><div class="legal-grid"><article class="law"><div class="label">SCHUFA</div><h2>“We only provide a score.”</h2><p>The agency could deny responsibility for the final outcome.</p></article><article class="law"><div class="label">THE BANK</div><h2>“We don’t know how it was calculated.”</h2><p>The bank could lack the information needed to explain the score.</p></article></div><p class="take">Without this interpretation, the individual could have no one to turn to.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 12 — How can individuals exercise their autonomy if they cannot understand or challenge decisions affecting their lives?" class="slide ethics teal" data-section="02.3"><div class="kicker">02.3 · ACCOUNTABILITY / ETHICAL ISSUE</div><h1>How can individuals exercise their autonomy if they cannot <span class="under">understand or challenge<svg preserveaspectratio="none" viewbox="0 0 320 18"><path class="stroke" d="M3 7Q65 0 140 7T316 5Q260 17 185 10" stroke-width="4"></path></svg></span> decisions affecting their lives?</h1><div class="footer"></div></section></div><div class="deck deck2"><section aria-hidden="true" aria-label="Slide 13 — The AI Act" class="slide section-break dark-break" data-section="03"><div class="part">03 · HIGH-RISK AI SYSTEMS</div><div aria-hidden="true" class="part-num">03</div><h1>The AI Act</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 14 — Credit scoring as a high-risk AI system" class="slide intro law-ink" data-section="03"><div class="kicker">03 · THE AI ACT / RISK-BASED APPROACH</div><h1>Credit scoring as a<br/>high-risk AI system</h1><div class="intro-grid"><div><p class="hero-copy">The higher the risk,<br/>the stronger the safeguards.</p><div aria-label="Credit score leads to loan and home" class="chain"><span><svg viewbox="0 0 32 32"><rect height="24" rx="5" width="24" x="4" y="4"></rect><path d="M10 21v-5m6 5V11m6 10V8"></path></svg>Credit score</span><b>→</b><span><svg viewbox="0 0 32 32"><rect height="18" rx="4" width="26" x="3" y="7"></rect><circle cx="16" cy="16" r="4"></circle><path d="M7 12h3m12 8h3"></path></svg>Loan</span><b>→</b><span><svg viewbox="0 0 32 32"><path d="M3 15 16 4l13 11M7 13v15h18V13M13 28V18h6v10"></path></svg>Home</span></div><p class="intro-caption">A credit score is not simply a number.</p></div><div class="risk-card"><div class="label">ARTICLE 6 · ANNEX III</div><div class="riskword">HIGH RISK</div><div aria-hidden="true" class="aster">✳</div><p>Creditworthiness and credit scoring.</p><small>Exception: financial fraud detection.</small></div></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 15 — High-risk does not mean prohibited." class="slide safeguards law-ink" data-section="03"><div class="kicker">03 · THE AI ACT / ARTICLES 9–12</div><h1>High-risk does not mean<br/>prohibited.</h1><p class="sub">It means stronger safeguards.</p><div class="req-air"><div class="requirement"><span class="number">09</span><div><div class="name">Risk management</div><div class="desc">Identify and reduce risks.</div></div></div><div class="requirement"><span class="number">10</span><div><div class="name">Data governance</div><div class="desc">Ensure data quality and reduce bias.</div></div></div><div class="requirement"><span class="number">11</span><div><div class="name">Technical documentation</div><div class="desc">Document how the system works.</div></div></div><div class="requirement"><span class="number">12</span><div><div class="name">Record-keeping</div><div class="desc">Ensure traceability.</div></div></div></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 16 — High-risk: the safeguards continue." class="slide safeguards follow law-ink" data-section="03"><div class="kicker">03 · THE AI ACT / ARTICLES 13–15 &amp; 27</div><h1>High-risk: the safeguards continue.</h1><div class="req-air"><div class="requirement focus"><span class="number">13</span><div><div class="name">Transparency</div><div class="desc">Enable deployers to interpret outputs.</div></div></div><div class="requirement"><span class="number">14</span><div><div class="name">Human oversight</div><div class="desc">Enable human monitoring and intervention.</div></div></div><div class="requirement"><span class="number">15</span><div><div class="name">Accuracy, robustness and cybersecurity</div><div class="desc">Ensure reliability and security.</div></div></div></div><div class="impact wide-impact"><div class="label">ARTICLE 27 · FUNDAMENTAL RIGHTS</div><p>Deployers must assess potential impacts on fundamental rights before use.</p></div><p class="risk-takeaway">For SCHUFA, transparency is particularly relevant.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 17 — Algorithmic opacity" class="slide section-break orange nested-break" data-section="04.1"><div class="part">04 · ALGORITHMIC TRANSPARENCY</div><div aria-hidden="true" class="part-num">04.1</div><h1>Algorithmic<br>opacity</br></h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 18 — Algorithmic opacity." class="slide s2 orange" data-section="04.1"><div class="kicker">04.1 · THE PROBLEM</div><div aria-hidden="true" class="mark"><svg viewbox="0 0 100 100"><path d="M50 4v92M10 27l80 46M10 73l80-46" fill="none" stroke="currentColor" stroke-width="13"></path></svg></div><h1>Algorithmic <span class="under">opacity.<svg preserveaspectratio="none" viewbox="0 0 320 18"><path class="stroke" d="M3 7Q65 0 140 7T316 5Q260 17 185 10" stroke-width="4"></path></svg></span></h1><p class="lead">Why is it difficult to understand how an algorithm produces a result?</p>
+<div class="opacity-list"><div class="opacity-row"><span class="number">1</span><h2>Technical complexity</h2></div><div class="opacity-row"><span class="number">2</span><h2>Limited technical knowledge</h2></div><div class="opacity-row"><span class="number">3</span><h2>Restrictions on information</h2><p>SCHUFA · trade secret protection</p></div></div>
+<p class="question">How can individuals identify errors or challenge unfair decisions they do not understand?</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 19 — The legal response" class="slide section-break dark-break nested-break" data-section="04.2"><div class="part">04 · ALGORITHMIC TRANSPARENCY</div><div aria-hidden="true" class="part-num">04.2</div><h1>The legal<br>response</br></h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 20 — Transparency in the private sector" class="slide legal-air law-ink" data-section="04.2"><div class="kicker">04.2 · THE LEGAL RESPONSE / AI ACT</div><h1>Transparency in the private sector</h1><p class="sub">Two levels of information.</p><div class="legal-grid"><article class="law"><div class="label">AI ACT · ARTICLE 13</div><h2>Understand the system</h2><p>Providers give deployers information on outputs and limitations.</p></article><article class="law"><div class="label">AI ACT · ARTICLE 26</div><h2>Know AI is being used</h2><p>Inform individuals about covered AI-assisted decisions.</p></article></div><p class="take">Knowing that AI is being used is not the same as understanding the decision.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 21 — A right to understand the decision" class="slide legal-air explain law-ink" data-section="04.2"><div class="kicker">04.2 · THE LEGAL RESPONSE / AI ACT &amp; GDPR</div><h1>A right to understand the decision</h1><p class="sub">Beyond simply knowing that AI is involved.</p><div class="legal-grid"><article class="law"><div class="label">AI ACT · ARTICLE 86</div><h2>Right to explanation</h2><p>Explain certain decisions involving high-risk AI.</p></article><article class="law"><div class="label">GDPR · ARTICLE 15</div><h2>Meaningful information</h2><p>Information about the logic behind relevant automated decisions.</p></article></div><p class="take">Awareness is not understanding.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 22 — Must companies disclose their entire algorithm?" class="slide trade-air law-ink" data-section="04.2"><div class="kicker">04.2 · THE LEGAL RESPONSE / TRADE SECRETS</div><h1>Must companies disclose<br/>their entire algorithm?</h1><p class="sub">Companies have legitimate interests in protecting trade secrets and competitive advantage.</p><div class="trade"><article class="trade-card"><div class="label">GDPR · RECITAL 63</div><h2>Trade secrets have limits.</h2><p>Commercial interests cannot justify withholding all information.</p></article><article class="trade-card second"><div class="label">CJEU · DUN &amp; BRADSTREET · 2025</div><h2>Who balances these interests?</h2><p>An independent authority or court, not the company itself.</p></article></div><p class="take trade-take">Not necessarily. But trade secrecy cannot justify total opacity.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 23 — From transparency to accountability" class="slide section-break teal nested-break" data-section="04.3"><div class="part">04 · ALGORITHMIC TRANSPARENCY</div><div aria-hidden="true" class="part-num">04.3</div><h1>From transparency<br>to accountability</br></h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 24 — Access is not the same as understanding." class="slide s4 teal account-air access-air" data-section="04.3"><div class="kicker">04.3 · FROM TRANSPARENCY TO ACCOUNTABILITY</div><div aria-hidden="true" class="mark"><svg viewbox="0 0 100 100"><path d="M50 4v92M10 27l80 46M10 73l80-46" fill="none" stroke="currentColor" stroke-width="13"></path></svg></div><h1>Access is not the same<br>as understanding.</br></h1>
+<div class="distinction"><div class="concept"><div class="label">01 · ACCESS</div><h2>Knowability</h2><p>Having access to information.</p></div><div aria-hidden="true" class="neq">≠</div><div class="concept second"><div class="label">02 · MEANING</div><h2>Understandability</h2><p>Being able to understand it.</p></div></div>
+<div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 25 — Source code alone may not explain a decision." class="slide s4 teal code-air" data-section="04.3"><div class="kicker">04.3 · ACCOUNTABILITY / A PRACTICAL EXAMPLE</div><h1>Source code alone<br/>may not explain a decision.</h1><div class="example"><div aria-hidden="true" class="code"><span class="label">SOURCE CODE</span><br/>{ source_code }<br/>•••••••••••••••<br/>•••••••••••••••</div><div class="ex-copy"><div class="label">THE INDIVIDUAL'S QUESTION</div><h2>Why was my loan rejected?</h2><p>Thousands of lines of code may not provide an understandable answer.</p></div></div><p class="last">Transparency ultimately protects individual rights.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 26 — What if a public authority uses an algorithm to determine access to social benefits?" class="slide question-air orange" data-section="04.3"><div class="kicker">04.3 · FROM THE PRIVATE TO THE PUBLIC SECTOR</div><h1>What if a public authority<br/>uses an algorithm to<br/>determine access to<br/>social benefits?</h1><div class="final-mark"><div aria-hidden="true" class="mark"><svg viewbox="0 0 100 100"><path d="M50 4v92M10 27l80 46M10 73l80-46" fill="none" stroke="currentColor" stroke-width="13"></path></svg></div></div><div class="footer"></div></section></div><div class="deck deck3"><section aria-hidden="true" aria-label="Slide 27 — The BOSCO case" class="slide section-break orange" data-section="05"><div class="part">PART 05</div><div aria-hidden="true" class="part-num">05</div><h1>The BOSCO case</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 28 — What is BOSCO?" class="slide facts case-ink" data-section="05"><div class="kicker">05 · CASE STUDY / THE FACTS</div><h1>What is BOSCO?</h1><p class="sub">Spanish government software used by electricity retailers to check eligibility for the <i>bono social</i>, a statutory discount for vulnerable consumers.</p><div class="trade"><article class="trade-card"><div class="label">2018 · CIVIO</div><h2>Access requested</h2><p>The transparency organisation requested the source code to scrutinise the automated system.</p></article><article class="trade-card second"><div class="label">MITECO · THE MINISTRY</div><h2>Source code withheld</h2><p>Specifications and tests were disclosed, but the code was refused on intellectual property and security grounds.</p></article></div><p class="take">The dispute: can the public inspect the code behind a statutory right?</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 29 — The Supreme Court’s findings." class="slide holdings ruling-ink" data-section="05"><div class="kicker">05 · CASE STUDY / THE RULING</div><h1>The Supreme Court’s findings.</h1><div class="req-air"><div class="requirement"><span class="number">01</span><div><div class="name">Code as administrative reasoning</div><div class="desc">When social rights are determined automatically, the code embodies the reasoning.</div></div></div><div class="requirement"><span class="number">02</span><div><div class="name">Security through obscurity is not enough</div><div class="desc">Independent auditing and safeguards can address security risks.</div></div></div><div class="requirement"><span class="number">03</span><div><div class="name">Public interest over blanket IP claims</div><div class="desc">Public intellectual property claims carry less weight than legal scrutiny.</div></div></div></div><p class="take">The code must be open to meaningful scrutiny.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 30 — Public authorities" class="slide section-break dark-break nested-break" data-section="06.1"><div class="part">06 · RESEARCH QUESTION &amp; RESULTS</div><div aria-hidden="true" class="part-num">06.1</div><h1>Public<br/>authorities</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 31 — The code is the law in action." class="slide sector public law-ink" data-section="06.1"><div class="kicker">06.1 · PUBLIC AUTHORITIES</div><h1>The code is the law in action.</h1><p class="sub">Public administrations exercise sovereign power and distribute public funds.</p><div class="legal-grid"><article class="law"><div class="label">01 · DEMOCRATIC ACCOUNTABILITY</div><h2>Law → Code</h2><p>When software translates legislation into eligibility criteria, auditing the code verifies whether the law is correctly applied.</p></article><article class="law"><div class="label">02 · NO COMMERCIAL RIVALRY</div><h2>Weaker IP claims</h2><p>Public authorities do not rely on market exclusivity or profit incentives in the same way as private competitors.</p></article></div><p class="take">Stronger transparency: access to code where needed for democratic and legal scrutiny.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 32 — Private companies" class="slide section-break dark-break nested-break" data-section="06.2"><div class="part">06 · RESEARCH QUESTION &amp; RESULTS</div><div aria-hidden="true" class="part-num">06.2</div><h1>Private<br/>companies</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 33 — Protect innovation. Not unaccountable power." class="slide sector private law-ink" data-section="06.2"><div class="kicker">06.2 · PRIVATE COMPANIES</div><h1>Protect innovation.<br/>Not unaccountable power.</h1><div class="legal-grid"><article class="law"><div class="label">01 · COMPETITIVE MARKETS</div><h2>Trade secrets</h2><p>Compulsory publication of raw source code can undermine innovation incentives and enable copying.</p></article><article class="law"><div class="label">02 · TAILORED TRANSPARENCY</div><h2>Explain &amp; audit</h2><p>Meaningful explanations and independent auditing can preserve accountability without indiscriminate disclosure.</p></article></div><p class="take">Commercial secrecy is legitimate. Unaccountable algorithmic power is not.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 34 — Research question &amp; results" class="slide section-break teal nested-break" data-section="06.3"><div class="part">06 · RESEARCH QUESTION &amp; RESULTS</div><div aria-hidden="true" class="part-num">06.3</div><h1>Research question<br/>&amp; results</h1><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 35 — Should private companies and public authorities be subject to different standards of algorithmic transparency?" class="slide qa teal" data-section="06.3"><div class="kicker">06.3 · RESULTS / RESEARCH QUESTION</div><h1>Should private companies and public authorities be subject to different standards of algorithmic transparency?</h1><p class="answer"><strong>Yes.</strong><span class="under">Different standards.<svg preserveaspectratio="none" viewbox="0 0 320 18"><path class="stroke" d="M3 7Q65 0 140 7T316 5Q260 17 185 10" stroke-width="4"></path></svg></span><br/>Same accountability.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 36 — Why different standards?" class="slide teal asymmetric compare" data-section="06.3"><div class="kicker">06.3 · RESULTS / ASYMMETRIC TRANSPARENCY</div><h1>Why different standards?</h1><div class="distinction"><div class="concept"><div class="label">PUBLIC AUTHORITIES</div><h2>Stronger transparency</h2><p>Sovereign power and statutory rights justify code-level scrutiny where needed.</p></div><div aria-hidden="true" class="neq">≠</div><div class="concept second"><div class="label">PRIVATE COMPANIES</div><h2>Tailored transparency</h2><p>Competition and trade secrets justify functional explanations and audited transparency.</p></div></div><div class="common"><div class="label">COMMON FLOOR</div><p>Effective accountability and individual rights in both sectors.</p></div><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 37 — A common floor of individual rights." class="slide floor account-ink" data-section="06.3"><div class="kicker">06.3 · RESULTS / COMMON FLOOR OF RIGHTS</div><h1>A common floor of<br/>individual rights.</h1><p class="lead">When algorithms significantly affect people’s lives, functional explainability should answer three questions.</p><div class="floor-grid"><div class="concept"><div class="label">01 · INPUTS</div><h2>Which data?</h2><p>What personal data was used?</p></div><div class="concept second"><div class="label">02 · LOGIC</div><h2>How weighted?</h2><p>How did that data influence the decision?</p></div><div class="concept"><div class="label">03 · OUTCOME</div><h2>Why this result?</h2><p>Why was this particular decision made?</p></div></div><p class="last" style="color:var(--lav)">Trade secrecy cannot eliminate the right to understand a consequential decision.</p><div class="footer"></div></section><section aria-hidden="true" aria-label="Slide 38 — Asymmetric transparency. Accountability for all." class="slide closing teal" data-section="06.3"><div class="kicker">06.3 · CONCLUSION</div><div aria-hidden="true" class="mark"><svg viewbox="0 0 100 100"><path d="M50 4v92M10 27l80 46M10 73l80-46" fill="none" stroke="currentColor" stroke-width="13"></path></svg></div><h1>Asymmetric transparency.<br/><span class="under">Accountability for all.<svg preserveaspectratio="none" viewbox="0 0 320 18"><path class="stroke" d="M3 7Q65 0 140 7T316 5Q260 17 185 10" stroke-width="4"></path></svg></span></h1><div class="footer"></div></section></div></div></main><script>const slides=[...document.querySelectorAll('.slide')];let index=0;
+function wave(end){let d='M 2 9',j=0;for(let x=2;x<end;x+=13){let e=Math.min(x+13,end);d+=` Q ${(x+e)/2} ${9+(j++%2?7:-7)} ${e} 9`;}return d;}
+slides.forEach((s,i)=>{let end=1000*(i+1)/slides.length;let tail=end+10;s.querySelector('.footer').innerHTML=`<svg class="progress" viewBox="0 0 1000 18" preserveAspectRatio="none" aria-hidden="true"><path d="${wave(end)}" stroke="var(--accent)" fill="none" stroke-width="5" stroke-linecap="round"/>${i<slides.length-1?`<path d="M${tail} 9 H998" stroke="var(--track)" stroke-width="5" stroke-linecap="round"/><circle cx="998" cy="9" r="3" fill="var(--accent)"/>`:''}</svg><span class="foot">${String(i+1).padStart(2,'0')} / ${slides.length}</span>`;});
+function show(i){index=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,j)=>{s.classList.toggle('active',j===index);s.setAttribute('aria-hidden',String(j!==index));});try{history.replaceState(null,'',`#${index+1}`)}catch(e){}}
+function fit(){document.documentElement.style.setProperty('--scale',Math.min(innerWidth/1440,innerHeight/810));}window.addEventListener('resize',fit);fit();show((Number(location.hash.slice(1))||1)-1);
+window.addEventListener('hashchange',()=>show((Number(location.hash.slice(1))||1)-1));
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();show(index+1)}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(index-1)}else if(e.key==='Home'){e.preventDefault();show(0)}else if(e.key==='End'){e.preventDefault();show(slides.length-1)}});
+const frame=document.querySelector('.frame');let start=null, suppressClick=0;
+frame.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')start={x:e.clientX,y:e.clientY}});
+frame.addEventListener('pointerup',e=>{if(!start)return;let dx=e.clientX-start.x,dy=e.clientY-start.y;start=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)){show(index+(dx<0?1:-1));suppressClick=performance.now()+450;}});
+frame.addEventListener('pointercancel',()=>start=null);
+frame.addEventListener('click',e=>{if(performance.now()<suppressClick||window.getSelection()?.toString())return;const r=frame.getBoundingClientRect(),x=(e.clientX-r.left)/r.width;if(x<.25)show(index-1);else if(x>.75)show(index+1);});</script></body></html>
